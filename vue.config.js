@@ -13,7 +13,6 @@ module.exports = {
     }
   },
   configureWebpack: {
-    name: name,
     resolve: {
       alias: {
         '@': resolve('src')
@@ -52,6 +51,7 @@ module.exports = {
           }
         ])
         .end()
+      // 代码切割和缓存
       config.optimization.splitChunks({
         chunks: 'all',
         cacheGroups: {
