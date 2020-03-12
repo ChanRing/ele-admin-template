@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import 'normalize.css/normalize.css'
+import 'normalize.css/normalize.css' // 样式重置
+import './styles/index.scss' // 通用样式
 
+import ElementUI from './plugins/elementUI'
 import './styles/element-variables.scss'
-import './plugins/elementUI'
-import './styles/index.scss' // 样式 - 系统样式
+Vue.use(ElementUI)
 
 import App from './App.vue'
 import router from './router'

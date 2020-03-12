@@ -1,4 +1,8 @@
-import Vue from 'vue'
+// 按需加载组件
 import { Button } from 'element-ui'
-// 按需引入组件
-Vue.use(Button)
+
+export default {
+  install: Vue => {
+    Vue.use(Button)
+  }
+}

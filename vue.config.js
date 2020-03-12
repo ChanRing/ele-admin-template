@@ -77,5 +77,13 @@ module.exports = {
       })
       config.optimization.runtimeChunk('single')
     })
+  },
+  css: {
+    loaderOptions: {
+      scss: {
+        // 传入共享的全局变量
+        prependData: `@import "~@/styles/variables.scss";`
+      }
+    }
   }
 }
