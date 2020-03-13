@@ -35,6 +35,7 @@ service.interceptors.request.use(
 // 响应拦截 处理响应内容
 service.interceptors.response.use(
   response => {
+    // 将已完成的请求在队列中去除
     const { config } = response
     const currentUrl = `${config.url}?${Qs.stringify(config.data)}`
     requestList.splice(requestList.findIndex(item => item === currentUrl))

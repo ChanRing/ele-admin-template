@@ -1,7 +1,6 @@
 const resolve = dir => require('path').join(__dirname, dir)
 
 module.exports = {
-  devServer: {},
   productionSourceMap: false,
   pages: {
     // 多页面入口
@@ -10,6 +9,9 @@ module.exports = {
       template: 'public/index.html',
       filename: 'index.html'
     }
+  },
+  devServer: {
+    before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     resolve: {

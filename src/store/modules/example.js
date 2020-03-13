@@ -1,6 +1,8 @@
 // vuex 模块化管理
 
-const state = {}
+const state = {
+  name: ''
+}
 
 const mutations = {}
 
