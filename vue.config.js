@@ -1,7 +1,6 @@
 const resolve = dir => require('path').join(__dirname, dir)
 
 module.exports = {
-  publicPath: '/', // 项目根目录
   devServer: {},
   productionSourceMap: false,
   pages: {
