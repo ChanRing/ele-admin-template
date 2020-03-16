@@ -15,5 +15,17 @@ export default [
     path: '/about',
     name: 'About',
     component: () => import(/* webpackChunkName: "common" */ '../views/About')
+  },
+  {
+    path: '/table',
+    name: 'Table',
+    component: () =>
+      import(/* webpackChunkName: "common" */ '../views/Table/Table')
+  },
+  {
+    path: '/table1',
+    name: 'Table1',
+    component: () =>
+      import(/* webpackChunkName: "common" */ '../views/Table/Table1')
   }
 ]

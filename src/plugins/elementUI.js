@@ -1,8 +1,10 @@
 // 按需加载组件
-import { Button } from 'element-ui'
+import { Button, Table, TableColumn } from 'element-ui'
 
 export default {
   install: Vue => {
     Vue.use(Button)
+    Vue.use(Table)
+    Vue.use(TableColumn)
   }
 }

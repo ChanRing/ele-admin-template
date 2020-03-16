@@ -39,7 +39,7 @@ service.interceptors.response.use(
     const { config } = response
     const currentUrl = `${config.url}?${Qs.stringify(config.data)}`
     requestList.splice(requestList.findIndex(item => item === currentUrl))
-    return response
+    return response.data
   },
   error => Promise.reject(error)
 )

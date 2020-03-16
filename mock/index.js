@@ -2,9 +2,10 @@ import Mock from 'mockjs'
 import Qs from 'qs'
 
 import user from './user'
-import table from './hello'
+import hello from './hello'
+import table from './table'
 
-const mocks = [...user, ...table]
+const mocks = [...user, ...hello, ...table]
 
 // for front mock
 // please use it cautiously, it will redefine XMLHttpRequest,
@@ -26,7 +27,7 @@ export function mockXHR() {
 
   function XHR2ExpressReqWrap(respond) {
     return function(options) {
-      let result = {}
+      let result
       if (respond instanceof Function) {
         const { body, type, url } = options
         // https://expressjs.com/en/4x/api.html#req
@@ -35,7 +36,7 @@ export function mockXHR() {
           body: JSON.parse(body),
           query: Qs.parse(url)
         })
-        Mock.mock(result)
+        // Mock.mock(result)
       } else {
         result = respond
       }
