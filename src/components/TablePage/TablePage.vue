@@ -1,6 +1,6 @@
 <template>
   <div class="table-page">
-    <el-table ref="table" v-bind="$subProps">
+    <el-table ref="table" v-bind="$subProps" @selection-change="handleSelect">
       <!-- 索引 Index列 -->
       <template v-if="hasIndex">
         <el-table-column
@@ -49,6 +49,8 @@
       class="pagination"
       v-if="hasPagination"
       v-bind="$paginationAttrs"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
     ></el-pagination>
   </div>
 </template>
@@ -112,6 +114,18 @@ export default {
         layout: 'prev, pager, next, jumper, sizes, total',
         ...this.paginationAttrs
       }
+    }
+  },
+  methods: {
+    handleSelect(selection) {
+      // 当选择项发生变化时会触发该事件
+      this.$emit('select', selection)
+    },
+    handleSizeChange(size) {
+      console.log(`每页${size}条`)
+    },
+    handleCurrentChange(current) {
+      console.log(`当前页:${current}页`)
     }
   }
 }

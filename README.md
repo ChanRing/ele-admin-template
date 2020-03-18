@@ -49,3 +49,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ├── postcss.config.js          # postcss 配置
 └── package.json               # package.json  
 ```
+### 组件文档生成说明 [@vuese/cli](https://vuese.org/zh/cli)
+
+```bash
+npm install -g @vuese/cli
+
+vuese serve --open # 实时更新文档
+vuese gen #打包输出文档
+
+```
