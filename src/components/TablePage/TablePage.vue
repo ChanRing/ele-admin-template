@@ -1,48 +1,20 @@
 <template>
   <div class="table-page">
     <el-table ref="table" v-bind="$subProps" @selection-change="handleSelect">
-      <!-- 索引 Index列 -->
-      <template v-if="hasIndex">
-        <el-table-column
-          type="index"
-          label="序号"
-          width="55px"
-        ></el-table-column>
-      </template>
-      <!-- 多选 selection列 -->
-      <template v-if="hasSelection">
-        <el-table-column type="selection" width="55px"></el-table-column>
-      </template>
-      <!-- 数据列封装 -->
-      <template v-for="(column, c) in $columns">
-        <!-- jsx渲染数据列 更深度的定制化 -->
-        <el-table-column v-bind="column" :key="c" v-if="column.render">
-          <column-render
-            slot-scope="scope"
-            :row="scope.row"
-            :index="scope.$index"
-            :render="column.render"
-          ></column-render>
-        </el-table-column>
-        <!-- 普通数据列 -->
-        <el-table-column v-bind="column" :key="c" v-else></el-table-column>
-        <!-- Todo： jsx 及 跨行数据 -->
-      </template>
-      <!-- 操作 buttons列 -->
-      <template v-if="buttonColumn">
-        <el-table-column v-bind="$buttonAttrs">
-          <template slot-scope="scope">
-            <el-button
-              v-for="(button, b) in buttonColumn.buttons"
-              type="text"
-              @click="button.callback(scope.row, scope.$index)"
-              :key="b"
-            >
-              {{ button.label }}
-            </el-button>
-          </template>
-        </el-table-column>
-      </template>
+<!--      &lt;!&ndash; 索引 Index列 &ndash;&gt;-->
+<!--      <template v-if="hasIndex">-->
+<!--        <el-table-column-->
+<!--          type="index"-->
+<!--          label="序号"-->
+<!--          width="55px"-->
+<!--        ></el-table-column>-->
+<!--      </template>-->
+<!--      &lt;!&ndash; 多选 selection列 &ndash;&gt;-->
+<!--      <template v-if="hasSelection">-->
+<!--        <el-table-column type="selection" width="55px"></el-table-column>-->
+<!--      </template>-->
+      <!-- 递归表格列以兼容多级表头 -->
+      <table-column :columns="columns"></table-column>
     </el-table>
     <el-pagination
       ref="pagination"
@@ -57,8 +29,10 @@
 
 <script>
 import ColumnRender from './ColumnRender'
+import TableColumn from './TableColumn'
 export default {
   name: 'TablePage',
+  components: { TableColumn },
   mixins: [ColumnRender],
   props: {
     // 表格数据
@@ -97,6 +71,8 @@ export default {
     $subProps() {
       return {
         data: this.data,
+        height: 'calc(100% - 48px)',
+        border: true,
         ...this.subProps
       }
     },
@@ -123,15 +99,21 @@ export default {
     },
     handleSizeChange(size) {
       console.log(`每页${size}条`)
+      // todo 调用接口更新data、pagination
     },
     handleCurrentChange(current) {
       console.log(`当前页:${current}页`)
+      // todo 调用接口更新data、pagination
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+.table-page {
+  height: 100%;
+  overflow: hidden;
+}
 .pagination {
   padding: 10px;
   text-align: center;

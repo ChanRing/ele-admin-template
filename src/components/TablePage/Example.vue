@@ -41,7 +41,7 @@ export default {
           prop: 'date'
         },
         {
-          label: '姓名',
+          label: 'formatter: 姓名',
           prop: 'name',
           formatter(row) {
             return `你的姓名是: ${row.name}`
@@ -64,7 +64,11 @@ export default {
           label: '操作',
           buttons: [
             {
-              label: '按钮1',
+              label: '按钮',
+              callback: this.callback
+            },
+            {
+              label: '按钮2',
               callback: this.callback
             }
           ]
@@ -74,7 +78,7 @@ export default {
   },
   methods: {
     callback(row, index) {
-      this.$message.success(`你点击的行数是${index}`)
+      this.$message.success(`你点击了第${index}行`)
       console.log(row)
     }
   }
