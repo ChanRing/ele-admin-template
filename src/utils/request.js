@@ -1,3 +1,7 @@
+/**
+ * Axios请求库封装
+ * Created by LaiChangRon on 20/03/11
+ */
 import axios from 'axios'
 import Qs from 'qs'
 
@@ -11,7 +15,6 @@ const options = {
 
 const service = axios.create(options)
 
-// Todo: 添加上cancelToken取消重复请求 - 待测试
 let requestList = []
 
 // 请求拦截 处理要发送的参数
@@ -22,7 +25,7 @@ service.interceptors.request.use(
       // 如果存在相同请求则过滤，这里为[取消后面的请求]
       const currentUrl = `${config.url}?${Qs.stringify(config.data)}`
       if (requestList.includes(currentUrl)) {
-        cancel()
+        cancel(`过滤请求: ${Date.now()}`)
       } else {
         requestList.push(currentUrl)
       }

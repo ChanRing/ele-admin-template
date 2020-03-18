@@ -1,7 +1,11 @@
 {
   "name": "md-element-admin",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": {
+    "email": "laichangrong@live.cn",
+    "name": "laichangrong"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -15,6 +19,7 @@
     "core-js": "^3.6.4",
     "element-ui": "^2.4.5",
     "mockjs": "^1.1.0",
+    "mutils": "^1.0.1",
     "normalize.css": "^8.0.1",
     "qs": "^6.9.1",
     "vue": "^2.6.11",

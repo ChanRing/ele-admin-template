@@ -1,0 +1,84 @@
+<template>
+  <table-page :columns="columns" :data="data" has-selection></table-page>
+</template>
+
+<script>
+import TablePage from './TablePage'
+export default {
+  name: 'Example',
+  components: { TablePage },
+  data() {
+    return {
+      data: [
+        {
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+          status: Math.random() > 0.5
+        },
+        {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄',
+          status: Math.random() > 0.5
+        },
+        {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄',
+          status: Math.random() > 0.5
+        },
+        {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄',
+          status: Math.random() > 0.5
+        }
+      ],
+      columns: [
+        {
+          label: '日期',
+          prop: 'date'
+        },
+        {
+          label: '姓名',
+          prop: 'name',
+          formatter(row) {
+            return `你的姓名是: ${row.name}`
+          }
+        },
+        {
+          label: '地址',
+          prop: 'address'
+        },
+        {
+          label: '通过jsx渲染列',
+          render: row => (
+            <el-switch
+              value={row.status}
+              nativeOnClick={() => (row.status = !row.status)}
+            ></el-switch>
+          )
+        },
+        {
+          label: '操作',
+          buttons: [
+            {
+              label: '按钮1',
+              callback: this.callback
+            }
+          ]
+        }
+      ]
+    }
+  },
+  methods: {
+    callback(row, index) {
+      this.$message.success(`你点击的行数是${index}`)
+      console.log(row)
+    }
+  }
+}
+</script>
+
+<style scoped></style>
