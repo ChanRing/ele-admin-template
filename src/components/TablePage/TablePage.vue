@@ -67,7 +67,7 @@ export default {
     // 分页组件属性集合，具体属性可参考 el-pagination
     paginationAttrs: Object,
     // 允许在此方法中整理data的内容
-    resetData: {
+    resolveData: {
       type: Function,
       default: data => data
     }
@@ -111,32 +111,33 @@ export default {
       this.$emit('select', selection)
     },
     handleSizeChange(size) {
-      console.log(`每页${size}条`)
-      // todo 调用接口更新data、pagination
+      this.pagination.pageSize = size
+      this.pagination.pageIndex = 1
+      this.getTableData()
     },
-    handleCurrentChange(current) {
-      console.log(`当前页:${current}页`)
-      // todo 调用接口更新data、pagination
+    handleCurrentChange(current = 1) {
+      this.pagination.currentPage = current
+      this.getTableData(current)
     },
     /**
      * @vuese
      * 通过请求获取表格数据
-     * @param pageIndex
+     * @param currentPage
      * @param pageSize
      * @returns {Promise<void>}
      */
-    async getTableData(pageIndex = 1, pageSize) {
+    async getTableData(currentPage = 1, pageSize) {
       if (this.api) {
         // todo 需要考虑是否支持url方式请求 待商议
         const pager = {
-          ...(this.hasPagination ? { pageIndex, pageSize } : {})
+          ...(this.hasPagination ? { currentPage, pageSize } : {})
         }
         const response = await this.api({ ...this.params, ...pager })
 
         // todo 基于后台接口返回调整
-        // 假定返回 response: { data: [], pageSize: 0, total: 0, pageIndex: 0 }
+        // 假定返回 response: { data: [], pageSize: 0, total: 0, currentPage: 0 }
         const { data, ...pagination } = response
-        this.tableData = this.resetData(data)
+        this.tableData = this.resolveData(data)
         this.pagination = pagination
 
         // 触发表格数据更新
