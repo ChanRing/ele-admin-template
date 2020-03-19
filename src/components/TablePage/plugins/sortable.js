@@ -15,12 +15,13 @@ export default {
     }
   },
   methods: {
-    rowDrop({ Sortable }) {
-      console.log(Sortable)
+    // 行拖拽事件
+    rowDrop() {
       this.$nextTick(() => {
+        if (!this.Sortable) return
         // 此时找到的元素是要拖拽元素的父容器
         const tbody = document.querySelector('.el-table__body-wrapper tbody')
-        Sortable.create(tbody, {
+        this.Sortable.create(tbody, {
           draggable: '.el-table__row',
           onEnd: ({ newIndex, oldIndex }) => {
             const currRow = this.tableData.splice(oldIndex, 1)[0]
@@ -29,10 +30,17 @@ export default {
         })
       })
     }
+    // 暂时不处理列排序的情况
   },
-  mounted() {
-    if (this.sortable) {
-      this.rowDrop(require('sortablejs'))
+  computed: {
+    /**
+     * 可插拔的方式注册Sortable
+     * @returns {Sortable|null}
+     * @constructor
+     */
+    Sortable() {
+      if (!this.sortable) return null
+      return require('sortablejs').Sortable
     }
   }
 }
