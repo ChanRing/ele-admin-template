@@ -1,5 +1,11 @@
 <template>
-  <table-page :columns="columns" :data="data" has-index has-selection></table-page>
+  <table-page
+    :columns="columns"
+    :data="data"
+    has-index
+    has-selection
+    sortable
+  ></table-page>
 </template>
 
 <script>

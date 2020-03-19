@@ -1,6 +1,10 @@
 <template>
   <div class="table-page">
-    <el-table ref="table" v-bind="_subProps" @selection-change="handleSelect">
+    <el-table
+      ref="table"
+      v-bind="_subProps"
+      @selection-change="handleSelect"
+    >
       <el-table-column v-if="hasIndex" type="index" label="#" />
       <el-table-column v-if="hasSelection" type="selection" />
       <!-- 内容跟tableColumns组件一样，但是不可以直接复用，有个问题没解决 -->
@@ -38,9 +42,11 @@
 import ButtonColumn from './Columns/ButtonColumn'
 import JSXColumn from './Columns/JSXColumn'
 import TableColumns from './Columns/TableColumns'
+import sortable from './plugins/sortable'
 export default {
   name: 'TablePage',
   components: { TableColumns, JSXColumn, ButtonColumn },
+  mixins: [sortable],
   props: {
     // 表格数据请求的接口
     api: [String, Function],
@@ -142,6 +148,7 @@ export default {
 
         // 触发表格数据更新
         this.$emit('update:data', this.tableData)
+        // 触发表格数据更新
         this.$emit('update', this.tableData)
       }
     }

@@ -29,6 +29,7 @@ export default {
   name: 'TableColumns',
   components: { ButtonColumn, JSXColumn },
   props: {
+    // 表格列对象 具体属性可以参考 el-table-column
     columns: Array
   }
 }
