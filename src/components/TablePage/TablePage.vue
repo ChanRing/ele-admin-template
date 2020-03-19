@@ -1,26 +1,32 @@
 <template>
   <div class="table-page">
-    <el-table ref="table" v-bind="$subProps" @selection-change="handleSelect">
-<!--      &lt;!&ndash; 索引 Index列 &ndash;&gt;-->
-<!--      <template v-if="hasIndex">-->
-<!--        <el-table-column-->
-<!--          type="index"-->
-<!--          label="序号"-->
-<!--          width="55px"-->
-<!--        ></el-table-column>-->
-<!--      </template>-->
-<!--      &lt;!&ndash; 多选 selection列 &ndash;&gt;-->
-<!--      <template v-if="hasSelection">-->
-<!--        <el-table-column type="selection" width="55px"></el-table-column>-->
-<!--      </template>-->
-      <!-- 递归表格列以兼容多级表头 -->
-      <table-column :columns="columns"></table-column>
+    <el-table ref="table" v-bind="_subProps" @selection-change="handleSelect">
+      <el-table-column v-if="hasIndex" type="index" label="#" />
+      <el-table-column v-if="hasSelection" type="selection" />
+      <template v-for="(column, c) in columns">
+        <!-- 递归表格列以兼容多级表头 -->
+        <el-table-column v-bind="column" v-if="column.children" :key="c">
+          <table-columns :columns="column.children"></table-columns>
+        </el-table-column>
+        <!-- 操作列渲染 -->
+        <template v-else-if="column.buttons">
+          <button-column :column="column" :key="c"></button-column>
+        </template>
+        <!-- jsx 数据列 -->
+        <template v-else-if="column.render">
+          <j-s-x-column :column="column" :key="c"></j-s-x-column>
+        </template>
+        <!-- 数据列 -->
+        <template v-else>
+          <el-table-column v-bind="column" :key="c"></el-table-column>
+        </template>
+      </template>
     </el-table>
     <el-pagination
       ref="pagination"
       class="pagination"
       v-if="hasPagination"
-      v-bind="$paginationAttrs"
+      v-bind="_paginationAttrs"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     ></el-pagination>
@@ -28,12 +34,12 @@
 </template>
 
 <script>
-import ColumnRender from './ColumnRender'
-import TableColumn from './TableColumn'
+import ButtonColumn from './Columns/ButtonColumn'
+import JSXColumn from './Columns/JSXColumn'
+import TableColumns from './Columns/TableColumns'
 export default {
   name: 'TablePage',
-  components: { TableColumn },
-  mixins: [ColumnRender],
+  components: { TableColumns, JSXColumn, ButtonColumn },
   props: {
     // 表格数据
     data: Array,
@@ -57,18 +63,8 @@ export default {
     paginationAttrs: Object
   },
   computed: {
-    // 返回操作列对象
-    buttonColumn() {
-      return this.columns.find(_ => _.buttons)
-    },
-    // （私有）初始化表格操作列，具体属性可以参考 el-table-column
-    $buttonAttrs() {
-      // eslint-disable-next-line no-unused-vars
-      const { buttons, ...attrs } = this.buttonColumn
-      return { width: '150px', ...attrs }
-    },
     // （私有）初始化表格，具体属性可以参考 el-table
-    $subProps() {
+    _subProps() {
       return {
         data: this.data,
         height: 'calc(100% - 48px)',
@@ -76,12 +72,8 @@ export default {
         ...this.subProps
       }
     },
-    // （私有）需要渲染的表格列集合
-    $columns() {
-      return this.columns.filter(_ => !(_.hide || _.buttons))
-    },
     // （私有）分页组件的属性集合
-    $paginationAttrs() {
+    _paginationAttrs() {
       return {
         total: 0, // todo 通过接口返回
         currentPage: 1, // todo 通过接口返回

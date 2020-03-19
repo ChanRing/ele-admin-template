@@ -1,5 +1,5 @@
 <template>
-  <table-page :columns="columns" :data="data" has-selection></table-page>
+  <table-page :columns="columns" :data="data" has-index has-selection></table-page>
 </template>
 
 <script>
@@ -38,7 +38,17 @@ export default {
       columns: [
         {
           label: '日期',
-          prop: 'date'
+          prop: 'date',
+          children: [
+            {
+              label: '年份',
+              formatter: row => row.date.substring(0, 5)
+            },
+            {
+              label: '月份',
+              formatter: row => row.date.substring(6, 2)
+            }
+          ]
         },
         {
           label: 'formatter: 姓名',
@@ -56,7 +66,7 @@ export default {
           render: row => (
             <el-switch
               value={row.status}
-              nativeOnClick={() => (row.status = !row.status)}
+              nativeOnClick={() => this.toggleRowStatus(row.status)}
             ></el-switch>
           )
         },
@@ -80,6 +90,10 @@ export default {
     callback(row, index) {
       this.$message.success(`你点击了第${index}行`)
       console.log(row)
+    },
+    toggleRowStatus(status) {
+      status = !status
+      this.$message.success(`当前状态：${status ? '开' : '关'}`)
     }
   }
 }
