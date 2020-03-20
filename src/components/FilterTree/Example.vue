@@ -22,13 +22,6 @@ export default {
     }
   },
   methods: {
-    // @vuese
-    /**
-     * 懒加载树节点数据
-     * @param id
-     * @param level
-     * @returns {Promise<*[]>|Promise<[]>}
-     */
     generateTreeNodes(id, level) {
       // 这里是假数据 避免无限循环
       if (level > 5) return Promise.resolve([])
