@@ -11,7 +11,7 @@ module.exports = {
     }
   },
   devServer: {
-    before: require('./mock/mock-server.js')
+    before: require('./mock/mockServer.js')
   },
   configureWebpack: {
     resolve: {

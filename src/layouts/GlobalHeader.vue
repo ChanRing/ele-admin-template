@@ -1,8 +1,7 @@
 <template>
   <el-header :class="['global-header', `global-header-${direction}`, theme]">
     <!-- LOGO区域 -->
-    <div :class="['brand', { 'full-brand': !this.collapse }]">
-    </div>
+    <div :class="['brand', { 'full-brand': !this.collapse }]"></div>
 
     <!-- 当出现侧边菜单栏才存在折叠按钮 -->
     <template v-if="direction === 'vertical'">
@@ -49,8 +48,8 @@ export default {
       theme: 'theme'
     }),
     toggleIcon() {
-      const fold = this.collapse ? 'unfold' : 'fold'
-      return `el-icon-s-${fold}`
+      const fold = this.collapse ? 'right' : 'left'
+      return `el-icon-d-arrow-${fold}`
     },
     avatar() {
       // todo 待接入头像
@@ -75,8 +74,6 @@ export default {
   .brand {
     width: 64px;
     height: 60px;
-    line-height: 60px;
-    text-align: center;
     margin-right: 1px;
     transition: 0.3s ease-in-out;
     &.full-brand {
@@ -88,11 +85,16 @@ export default {
     width: 60px;
     text-align: center;
     line-height: 60px;
-    color: #99a9bf;
     font-size: 20px;
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
   }
   .avatar-dropdown {
     margin-left: auto;
+    &:hover {
+      cursor: pointer;
+    }
     &-link {
       display: flex;
       align-items: center;

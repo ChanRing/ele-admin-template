@@ -6,14 +6,14 @@
     :collapse="collapse"
   >
     <template v-for="(menu, m) in menus">
-      <el-submenu v-if="menu.children" :key="m" :index="`${m}`">
+      <el-submenu v-if="menu.children" :key="m" :index="menu.name">
         <template slot="title">
           <i :class="menu.icon"></i>
           <span>{{ menu.title }}</span>
         </template>
         <nav-menu :menus="menu.children"></nav-menu>
       </el-submenu>
-      <el-menu-item v-else :key="m" :index="`${m}`">
+      <el-menu-item v-else :key="m" :index="menu.name">
         <i :class="menu.icon"></i>
         <span slot="title">{{ menu.title }}</span>
       </el-menu-item>
@@ -43,16 +43,6 @@ export default {
     activeIndex() {
       return this.$route.name
     }
-    // themeAttrs() {
-    // if (this.theme === 'dark') {
-    //   return {
-    //     color: 'transparent',
-    //     textColor: '#fff',
-    //     activeTextColor: '#ffd04b'
-    //   }
-    // }
-    // return {}
-    // }
   }
 }
 </script>

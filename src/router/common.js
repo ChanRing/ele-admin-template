@@ -5,28 +5,25 @@
 export default [
   {
     path: '/',
-    name: 'Layout',
-    component: () =>
-      import(/* webpackChunkName: "common" */ '../layouts/GlobalLayout'),
-    meta: {
-      title: '首页'
-    }
+    name: 'layout',
+    component: () => import('../layouts/GlobalLayout'),
+    redirect: 'workbench',
+    children: [
+      {
+        path: 'workbench',
+        name: 'workbench',
+        component: () => import('../views/Workbench')
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "common" */ '../views/About')
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login')
   },
   {
-    path: '/table',
-    name: 'Table',
-    component: () =>
-      import(/* webpackChunkName: "common" */ '../views/Table/Table')
-  },
-  {
-    path: '/table1',
-    name: 'Table1',
-    component: () =>
-      import(/* webpackChunkName: "common" */ '../views/Table/Table1')
+    path: '*',
+    name: '404',
+    component: () => import('../views/Error/404')
   }
 ]

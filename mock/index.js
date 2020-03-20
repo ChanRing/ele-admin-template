@@ -1,11 +1,9 @@
 import Mock from 'mockjs'
 import Qs from 'qs'
 
-import user from './user'
-import hello from './hello'
-import table from './table'
+import mocksData from './mocksData'
 
-const mocks = [...user, ...hello, ...table]
+const mocks = [...mocksData]
 
 // for front mock
 // please use it cautiously, it will redefine XMLHttpRequest,

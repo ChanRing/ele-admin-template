@@ -27,27 +27,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tab-navs {
-  height: 40px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  .toggle-btn {
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    text-align: center;
-    font-size: 16px;
-    border-right: 1px solid #ddd;
-  }
-  & > *:last-of-type {
-    flex-grow: 1;
-    width: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  ::v-deep .el-tabs__header {
-    margin-bottom: 0;
-  }
-}
 </style>

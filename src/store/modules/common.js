@@ -10,7 +10,8 @@ const state = {
   direction: 'vertical', // 菜单栏显示方式 horizontal vertical
   theme: 'dark',
   hasNavs: false,
-  menus: []
+  menus: [],
+  routes: []
 }
 
 const actions = {
@@ -18,8 +19,11 @@ const actions = {
     commit('toggleCollapse')
   },
   async getMenus({ commit }) {
-    const menus = (await getMenus()).data
-    commit('getMenus', menus)
+    commit('getMenus', (await getMenus()).data)
+  },
+  async generateRouter({ commit }) {
+    const routes = []
+    commit('generateRouter', routes)
   }
 }
 
@@ -29,6 +33,9 @@ const mutations = {
   },
   getMenus(state, menus) {
     state.menus = menus
+  },
+  generateRouter(state, routes) {
+    state.routes = routes
   }
 }
 
