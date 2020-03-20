@@ -7,7 +7,7 @@ import { getMenus } from '../../api'
 
 const state = {
   collapse: true, // 侧边栏是否折叠
-  direction: 'horizontal', // 菜单栏显示方式 horizontal vertical
+  direction: 'vertical', // 菜单栏显示方式 horizontal vertical
   theme: 'dark',
   hasNavs: false,
   menus: []

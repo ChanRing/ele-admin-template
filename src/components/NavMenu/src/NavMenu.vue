@@ -4,7 +4,6 @@
     :default-active="activeIndex"
     :mode="mode"
     :collapse="collapse"
-    v-bind="themeAttrs"
   >
     <template v-for="(menu, m) in menus">
       <el-submenu v-if="menu.children" :key="m" :index="`${m}`">
@@ -43,22 +42,25 @@ export default {
   computed: {
     activeIndex() {
       return this.$route.name
-    },
-    themeAttrs() {
-      if (this.theme === 'dark') {
-        return {
-          backgroundColor: '#545c64',
-          textColor: '#fff',
-          activeTextColor: '#ffd04b'
-        }
-      }
-      return {}
     }
+    // themeAttrs() {
+    // if (this.theme === 'dark') {
+    //   return {
+    //     color: 'transparent',
+    //     textColor: '#fff',
+    //     activeTextColor: '#ffd04b'
+    //   }
+    // }
+    // return {}
+    // }
   }
 }
 </script>
 
 <style scoped lang="scss">
+.el-menu {
+  background: transparent;
+}
 .nav-menu {
   &-vertical {
     height: 100%;
