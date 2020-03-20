@@ -4,17 +4,22 @@
     <el-tree
       ref="tree"
       class="filter-tree"
-      :data="data"
-      v-bind="$subProps"
+      :data="treeData"
+      v-bind="_subProps"
       :filter-node-method="filterNodeMethod"
     ></el-tree>
   </div>
 </template>
 
 <script>
+// 树形组件封装
 export default {
   name: 'TreePicker',
   props: {
+    // 树形数据请求接口
+    api: Function,
+    // 请求参数
+    params: [Object, String],
     // 输入框提示语
     placeholder: {
       type: String,
@@ -35,12 +40,13 @@ export default {
   },
   data() {
     return {
-      filterText: ''
+      filterText: '',
+      treeData: []
     }
   },
   computed: {
     // 传入el-tree的prop属性 由固定属性+自定义属性构成
-    $subProps() {
+    _subProps() {
       return {
         // ...固定属性配置,
         ...this.subProps
@@ -51,13 +57,24 @@ export default {
     filterText(val) {
       // 触发el-tree的filter方法
       this.$refs.tree.filter(val)
+    },
+    data: {
+      immediate: true,
+      handler(val) {
+        this.treeData = val
+      }
     }
   },
   methods: {
     filterNodeMethod(value, data) {
       if (!value) return true
-      const { props = {} } = this.$subProps
+      const { props = {} } = this._subProps
       return data[props.label || 'label'].indexOf(value) !== -1
+    },
+    async getTreeData() {
+      if (this.api) {
+        this.treeData = (await this.api(this.params)).data
+      }
     }
   }
 }

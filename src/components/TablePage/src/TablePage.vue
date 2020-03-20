@@ -1,31 +1,13 @@
 <template>
   <div class="table-page">
-    <el-table
-      ref="table"
-      v-bind="_subProps"
-      @selection-change="handleSelect"
-    >
-      <el-table-column v-if="hasIndex" type="index" label="#" />
+    <el-table ref="table" v-bind="_subProps" @selection-change="handleSelect">
       <el-table-column v-if="hasSelection" type="selection" />
-      <!-- 内容跟tableColumns组件一样，但是不可以直接复用，有个问题没解决 -->
-      <template v-for="(column, c) in columns">
-        <!-- 递归表格列以兼容多级表头 -->
-        <el-table-column v-bind="column" v-if="column.children" :key="c">
-          <table-columns :columns="column.children"></table-columns>
-        </el-table-column>
-        <!-- 操作列渲染 -->
-        <template v-else-if="column.buttons">
-          <button-column :column="column" :key="c"></button-column>
-        </template>
-        <!-- jsx 数据列 -->
-        <template v-else-if="column.render">
-          <j-s-x-column :column="column" :key="c"></j-s-x-column>
-        </template>
-        <!-- 数据列 -->
-        <template v-else>
-          <el-table-column v-bind="column" :key="c"></el-table-column>
-        </template>
-      </template>
+      <el-table-column v-if="hasIndex" type="index" label="序号" />
+      <table-column
+        v-for="(column, c) in columns"
+        :column="column"
+        :key="c"
+      ></table-column>
     </el-table>
     <el-pagination
       ref="pagination"
@@ -39,19 +21,22 @@
 </template>
 
 <script>
-import ButtonColumn from './Columns/ButtonColumn'
-import JSXColumn from './Columns/JSXColumn'
-import TableColumns from './Columns/TableColumns'
-import sortable from './plugins/sortable'
+import TableColumn from './TableColumn/src/TableColumn'
+import sortable from './mixins/sortable'
+
+/**
+ * 基础的使用方式与官方版的保持一致，在此基础上新增了加载数据的方法和分页组件。
+ * 你调用组件的时候无需进行分页逻辑处理，仅需向TablePage组件传递:api="Promise"即可
+ */
 export default {
   name: 'TablePage',
-  components: { TableColumns, JSXColumn, ButtonColumn },
+  components: { TableColumn },
   mixins: [sortable],
   props: {
     // 表格数据请求的接口
-    api: [String, Function],
+    api: Function,
     // 表格数据请求的参数
-    params: Object,
+    params: [Object, String],
     // 表格数据，如果定义了api属性，则data会被覆盖
     data: Array,
     // 是否有索引列
@@ -72,7 +57,7 @@ export default {
     },
     // 分页组件属性集合，具体属性可参考 el-pagination
     paginationAttrs: Object,
-    // 允许在此方法中整理data的内容
+    // 允许在此方法中修改表格的data
     resolveData: {
       type: Function,
       default: data => data
@@ -84,17 +69,16 @@ export default {
       return {
         data: this.tableData,
         height: 'calc(100% - 48px)',
-        border: true,
         ...this.subProps
       }
     },
     // （私有）分页组件的属性集合
     _paginationAttrs() {
       return {
-        ...this.pagination,
         pageSizes: [10, 20, 50, 100],
         background: true,
-        layout: 'prev, pager, next, jumper, sizes, total',
+        layout: 'total, sizes, prev, pager, next, jumper',
+        ...this.pagination,
         ...this.paginationAttrs
       }
     }
@@ -118,7 +102,7 @@ export default {
     },
     handleSizeChange(size) {
       this.pagination.pageSize = size
-      this.pagination.pageIndex = 1
+      this.pagination.currentPage = 1
       this.getTableData()
     },
     handleCurrentChange(current = 1) {
@@ -132,9 +116,8 @@ export default {
      * @param pageSize
      * @returns {Promise<void>}
      */
-    async getTableData(currentPage = 1, pageSize) {
+    async getTableData(currentPage = 1, pageSize = this.pagination.pageSize) {
       if (this.api) {
-        // todo 需要考虑是否支持url方式请求 待商议
         const pager = {
           ...(this.hasPagination ? { currentPage, pageSize } : {})
         }

@@ -1,4 +1,7 @@
-// 需要混入的变量
+/**
+* 全局样式混入
+* Created by ChangRon 2020/03/16
+ */
 
 @mixin scrollBar {
   &::-webkit-scrollbar-track-piece {

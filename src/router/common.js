@@ -5,8 +5,9 @@
 export default [
   {
     path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "common" */ '../views/Home'),
+    name: 'Layout',
+    component: () =>
+      import(/* webpackChunkName: "common" */ '../layouts/GlobalLayout'),
     meta: {
       title: '首页'
     }

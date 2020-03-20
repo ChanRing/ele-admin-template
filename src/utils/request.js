@@ -42,6 +42,7 @@ service.interceptors.response.use(
     const { config } = response
     const currentUrl = `${config.url}?${Qs.stringify(config.data)}`
     requestList.splice(requestList.findIndex(item => item === currentUrl))
+    // todo 根据服务器返回的状态码，给予错误提示
     return response.data
   },
   error => Promise.reject(error)

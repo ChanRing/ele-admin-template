@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TreePicker from './FilterTree'
+import TreePicker from './src/FilterTree'
 export default {
   name: 'example',
   data() {

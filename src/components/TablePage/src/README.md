@@ -1,11 +1,13 @@
 # TablePage
 
+基础的使用方式与官方版的保持一致，在此基础上新增了加载数据的方法和分页组件。 你调用组件的时候无需进行分页逻辑处理，仅需向TablePage组件传递:api="Promise"即可
+
 ## Props
 
 <!-- @vuese:TablePage:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|api|表格数据请求的接口|`String` /  `Function`|`false`|-|
+|api|表格数据请求的接口|`Promise`|`false`|-|
 |params|表格数据请求的参数|`Object`|`false`|-|
 |data|表格数据，如果定义了api属性，则data会被覆盖|`Array`|`false`|-|
 |hasIndex|是否有索引列|`Boolean`|`false`|-|
@@ -26,7 +28,7 @@
 |---|---|---|
 |select|当选择项发生变化时会触发该事件|-|
 |update:data|触发表格数据更新|-|
-|update|-|-|
+|update|触发表格数据更新|-|
 
 <!-- @vuese:TablePage:events:end -->
 
@@ -39,5 +41,15 @@
 |getTableData|通过请求获取表格数据|-|
 
 <!-- @vuese:TablePage:methods:end -->
+
+
+## MixIns
+
+<!-- @vuese:TablePage:mixIns:start -->
+|MixIn|
+|---|
+|sortable|
+
+<!-- @vuese:TablePage:mixIns:end -->
 
 

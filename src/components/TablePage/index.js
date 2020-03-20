@@ -1,4 +1,4 @@
-import TablePage from './TablePage'
+import TablePage from './src/TablePage'
 
 TablePage.install = Vue => {
   Vue.component(TablePage.name, TablePage)

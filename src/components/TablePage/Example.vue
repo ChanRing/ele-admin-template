@@ -1,58 +1,36 @@
 <template>
   <table-page
+    ref="table"
+    :api="api"
     :columns="columns"
     :data="data"
     has-index
     has-selection
-    sortable
+    @select="handleSelect"
   ></table-page>
 </template>
 
 <script>
-import TablePage from './TablePage'
+import { getTablePage } from '../../api'
+import TablePage from './src/TablePage'
 export default {
   name: 'Example',
   components: { TablePage },
   data() {
     return {
-      data: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          status: Math.random() > 0.5
-        },
-        {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄',
-          status: Math.random() > 0.5
-        },
-        {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄',
-          status: Math.random() > 0.5
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-          status: Math.random() > 0.5
-        }
-      ],
+      data: [],
+      api: getTablePage,
       columns: [
         {
-          label: '日期',
-          prop: 'date',
+          label: '多级表头',
           children: [
             {
               label: '年份',
-              formatter: row => row.date.substring(0, 5)
+              formatter: row => row.date.substr(0, 4)
             },
             {
               label: '月份',
-              formatter: row => row.date.substring(6, 2)
+              formatter: row => row.date.substr(5, 2)
             }
           ]
         },
@@ -72,7 +50,7 @@ export default {
           render: row => (
             <el-switch
               value={row.status}
-              nativeOnClick={() => this.toggleRowStatus(row.status)}
+              nativeOnClick={() => this.toggleRowStatus(row)}
             ></el-switch>
           )
         },
@@ -95,12 +73,31 @@ export default {
   methods: {
     callback(row, index) {
       this.$message.success(`你点击了第${index}行`)
-      console.log(row)
     },
-    toggleRowStatus(status) {
-      status = !status
-      this.$message.success(`当前状态：${status ? '开' : '关'}`)
+    toggleRowStatus(row) {
+      row.status = !row.status
+      this.$message.success(`当前状态：${row.status ? '开' : '关'}`)
+    },
+    handleSelect(selection) {
+      this.$message.success(`当前勾选了：${selection.length}条数据`)
     }
+  },
+  mounted() {
+    // 请求表格数据
+    this.$refs.table.getTableData()
+    // this.data = Mock.mock({
+    //   'data|10': [
+    //     {
+    //       id: '@id',
+    //       date: '@date(yyyy-MM-dd)',
+    //       status: '@boolean',
+    //       name: '@name',
+    //       address: '@county',
+    //       display_time: '@datetime',
+    //       pageviews: '@integer(300, 5000)'
+    //     }
+    //   ]
+    // }).data
   }
 }
 </script>

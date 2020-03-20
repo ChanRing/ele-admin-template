@@ -1,7 +1,16 @@
-// 系统通用样式
+/**
+* 系统样式出口
+* Created by ChangRon 2020/03/16
+ */
 @import 'mixin';
 @import 'variables';
 
 #app {
   height: 100vh;
+  display: flex;
+}
+
+.dark {
+  background: $--color-dark !important;
+  color: $--color-light !important;
 }

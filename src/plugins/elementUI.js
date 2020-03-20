@@ -7,12 +7,48 @@ import {
   Input,
   Pagination,
   Switch,
+  Menu,
+  MenuItem,
+  Container,
+  Main,
+  Aside,
+  Footer,
   Message,
   Loading,
-  MessageBox
+  MessageBox,
+  Header,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Tabs,
+  TabPane,
+  Avatar,
+  Submenu
 } from 'element-ui'
 
-const components = [Button, Table, TableColumn, Tree, Input, Pagination, Switch]
+const components = [
+  Button,
+  Table,
+  TableColumn,
+  Tree,
+  Input,
+  Pagination,
+  Switch,
+  Menu,
+  MenuItem,
+  Container,
+  Header,
+  Main,
+  Aside,
+  Footer,
+  Tabs,
+  TabPane,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Avatar,
+  Submenu
+]
 
 export default {
   install: Vue => {
