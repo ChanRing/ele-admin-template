@@ -6,24 +6,24 @@ export default [
   {
     path: '/',
     name: 'layout',
-    component: () => import('../layouts/GlobalLayout'),
+    component: () => import('../../layouts/GlobalLayout'),
     redirect: 'workbench',
     children: [
       {
         path: 'workbench',
         name: 'workbench',
-        component: () => import('../views/Workbench')
+        component: () => import('../../views/Workbench')
       }
     ]
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/Login')
+    component: () => import('../../views/Login')
   },
   {
     path: '*',
     name: '404',
-    component: () => import('../views/Error/404')
+    component: () => import('../../views/Error/404')
   }
 ]

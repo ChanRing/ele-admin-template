@@ -10,6 +10,7 @@
     {
       "title": "列表页",
       "icon": "el-icon-date",
+      "name": "dataList",
       "children": [{
         "title": "查询表格",
         "component": "@/views/DataList/QueryTable",
