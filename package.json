@@ -1,5 +1,5 @@
 {
-  "name": "md-element-admin",
+  "name": "md-element-admin-template",
   "version": "0.1.0",
   "private": false,
   "author": {
@@ -10,9 +10,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "body-parser": "latest",
@@ -26,7 +24,8 @@
     "sortablejs": "^1.10.2",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "@babel/register": "7.0.0",
@@ -38,7 +37,6 @@
     "@vue/cli-service": "^4.2.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "1.0.0-beta.31",
-    "axios": "^0.18.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
@@ -48,8 +46,6 @@
     "prettier": "^1.19.1",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
-    "vue-cli-plugin-axios": "0.0.4",
-    "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

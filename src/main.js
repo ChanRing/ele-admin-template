@@ -10,9 +10,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// import mUtils from 'mutils'
-// console.log(mUtils.timeFormat(new Date()))
-
 Vue.config.productionTip = false
 
 new Vue({

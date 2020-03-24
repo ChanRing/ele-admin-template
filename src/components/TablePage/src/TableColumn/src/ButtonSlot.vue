@@ -1,5 +1,4 @@
 <template>
-  <!--  <el-table-column v-bind="_subProps">-->
   <div>
     <el-button
       v-for="(button, b) in column.buttons"
@@ -9,8 +8,6 @@
       >{{ button.label }}</el-button
     >
   </div>
-
-  <!--  </el-table-column>-->
 </template>
 
 <script>

@@ -15,7 +15,7 @@ import {
   Footer,
   Message,
   Loading,
-  MessageBox,
+  // MessageBox,
   Header,
   Dropdown,
   DropdownItem,
@@ -23,7 +23,9 @@ import {
   Tabs,
   TabPane,
   Avatar,
-  Submenu
+  Submenu,
+  Form,
+  FormItem
 } from 'element-ui'
 
 const components = [
@@ -47,7 +49,9 @@ const components = [
   DropdownItem,
   DropdownMenu,
   Avatar,
-  Submenu
+  Submenu,
+  Form,
+  FormItem
 ]
 
 export default {
@@ -55,8 +59,6 @@ export default {
     components.forEach(component => {
       Vue.component(component.name, component)
     })
-
-    console.log(MessageBox.alert)
     Vue.prototype.$loading = Loading.service
     // Vue.prototype.$alert = MessageBox.alert
     // Vue.prototype.$confirm = MessageBox.confirm

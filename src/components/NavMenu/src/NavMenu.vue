@@ -22,8 +22,14 @@
 </template>
 
 <script>
+// import { Menu, MenuItem, Submenu } from 'element-ui'
 export default {
   name: 'NavMenu',
+  // components: {
+  //   [Menu.name]: Menu,
+  //   [MenuItem.name]: MenuItem,
+  //   [Submenu.name]: Submenu
+  // },
   props: {
     mode: {
       type: String,
