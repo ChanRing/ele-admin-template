@@ -19,3 +19,7 @@
 .mediate {
   @include mediate
 }
+
+.search-bar + .table-page {
+  margin-top: 20px;
+}

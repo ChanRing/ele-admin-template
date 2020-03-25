@@ -1,15 +1,15 @@
 <template>
   <div class="search-bar">
     <!-- 搜索表单部分 -->
-    <transition name="el-fade-in-linear">
-      <search-form
-        v-show="showFilters"
-        :form="form"
-        :form-items="formItems"
-        @search="form => $emit('search', form)"
-        @reset="form => $emit('reset', form)"
-      ></search-form>
-    </transition>
+    <!--    <transition name="el-fade-in-linear">-->
+    <search-form
+      v-show="showFilters"
+      :form="form"
+      :form-items="formItems"
+      @search="form => $emit('search', form)"
+      @reset="form => $emit('reset', form)"
+    ></search-form>
+    <!--    </transition>-->
 
     <div class="button-group">
       <el-button
@@ -21,7 +21,7 @@
       >
       <!-- 是否显示更多操作 -->
       <el-dropdown v-if="moreButtons" style="margin-left: 10px">
-        <el-button type="primary">
+        <el-button>
           更多操作<i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <el-dropdown-menu slot="dropdown">
@@ -85,5 +85,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 </style>

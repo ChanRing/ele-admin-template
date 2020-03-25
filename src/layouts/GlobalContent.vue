@@ -32,12 +32,13 @@ export default {
   display: flex;
   flex-direction: column;
   background: $--bg-color-basic;
-  /*padding: 0;*/
   .page-block {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
-    overflow-x: hidden;
-    padding: 20px;
+    overflow: hidden;
     background: #fff;
+    padding: 0 20px;
   }
 }
 </style>

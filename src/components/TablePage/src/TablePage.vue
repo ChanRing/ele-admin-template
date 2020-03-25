@@ -68,6 +68,7 @@ export default {
     _subProps() {
       return {
         data: this.tableData,
+        stripe: true,
         height: 'calc(100% - 48px)',
         ...this.subProps
       }
@@ -151,7 +152,7 @@ export default {
 
 <style scoped lang="scss">
 .table-page {
-  height: 100%;
+  flex: 1;
   overflow: hidden;
 }
 .pagination {
