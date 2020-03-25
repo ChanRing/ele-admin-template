@@ -3,7 +3,7 @@
   "data": [
     {
       "title": "工作台",
-      "icon": "el-icon-coordinate",
+      "icon": "el-icon-monitor",
       "component": "@/views/Workbench",
       "name": "workbench"
     },

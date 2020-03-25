@@ -17,3 +17,9 @@
     border-radius: 20px;
   }
 }
+
+@mixin mediate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

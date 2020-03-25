@@ -1,17 +1,19 @@
 <template>
-  <el-header :class="['global-header', `global-header-${direction}`, theme]">
+  <el-header :class="['global-header', theme]">
     <!-- LOGO区域 -->
-    <div :class="['brand', { 'full-brand': !this.collapse }]"></div>
+    <div :class="['brand', { 'full-brand': !this.collapse }]">
+      项目主题名称
+    </div>
 
-    <!-- 当出现侧边菜单栏才存在折叠按钮 -->
-    <template v-if="direction === 'vertical'">
-      <div class="toggle-btn" @click="toggleCollapse">
-        <i :class="toggleIcon"></i>
-      </div>
-    </template>
+    <!--    &lt;!&ndash; 当出现侧边菜单栏才存在折叠按钮 &ndash;&gt;-->
+    <!--    <template v-if="direction === 'vertical'">-->
+    <!--      <div class="toggle-btn" @click="toggleCollapse">-->
+    <!--        <i :class="toggleIcon"></i>-->
+    <!--      </div>-->
+    <!--    </template>-->
 
     <!-- 横向菜单区域 -->
-    <nav-menu :menus="menus" mode="horizontal" v-else></nav-menu>
+    <nav-menu v-if="isHorizontal" :menus="menus" :mode="direction"></nav-menu>
 
     <!-- 用户信息区域 -->
     <el-dropdown
@@ -22,7 +24,7 @@
         <el-avatar :size="32" style="margin-right: 14px">{{
           avatar
         }}</el-avatar>
-        {{ `欢迎你，${username}` }}
+        {{ username }}
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
@@ -57,6 +59,9 @@ export default {
     },
     username() {
       return '赖昌荣'
+    },
+    isHorizontal() {
+      return this.direction === 'horizontal'
     }
   },
   methods: {
@@ -74,7 +79,9 @@ export default {
   .brand {
     width: 64px;
     height: 60px;
-    margin-right: 1px;
+    line-height: 60px;
+    text-align: center;
+    font-size: $--font-size-main;
     transition: 0.3s ease-in-out;
     &.full-brand {
       width: 232px;

@@ -7,6 +7,17 @@ export default [
     path: '/dataList', // 模块名 or 功能名称
     name: 'dataList',
     component: () => import('../../layouts/GlobalLayout'),
-    children: []
+    children: [
+      {
+        path: 'queryTable',
+        name: 'queryTable',
+        component: () => import('../../views/DataList/QueryTable')
+      },
+      {
+        path: 'standardTable',
+        name: 'standardTable',
+        component: () => import('../../views/DataList/StandardTable')
+      }
+    ]
   }
 ]

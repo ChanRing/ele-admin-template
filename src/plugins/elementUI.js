@@ -25,7 +25,12 @@ import {
   Avatar,
   Submenu,
   Form,
-  FormItem
+  FormItem,
+  Breadcrumb,
+  BreadcrumbItem,
+  Popover,
+  DatePicker,
+  Scrollbar
 } from 'element-ui'
 
 const components = [
@@ -51,7 +56,12 @@ const components = [
   Avatar,
   Submenu,
   Form,
-  FormItem
+  FormItem,
+  Breadcrumb,
+  BreadcrumbItem,
+  Popover,
+  DatePicker,
+  Scrollbar
 ]
 
 export default {

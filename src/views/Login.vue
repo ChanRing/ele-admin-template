@@ -1,8 +1,8 @@
 <template>
-  <div :class="['login', { background: hasBackground }]">
+  <div :class="['login', 'mediate', { background: hasBackground }]">
     <el-form :model="form" hide-required-asterisk status-icon>
       <el-form-item>
-        <h1>项目模板</h1>
+        <h1 class="title">项目模板</h1>
       </el-form-item>
       <el-form-item required>
         <el-input v-model="form.username" placeholder="用户名">
@@ -37,11 +37,8 @@ export default {
 .login {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #99a9bf; // todo 有待转化为变量
-  h1 {
+  background: #2d3a4b;
+  .title {
     text-align: center;
     color: $--color-primary;
   }
@@ -53,7 +50,12 @@ export default {
     padding: 0 20px;
     border-radius: 5px;
     z-index: 10;
-    background: rgba(0,0,0,.2);
+    background: rgba(0, 0, 0, 0.2);
+    ::v-deep input {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+    }
   }
   .login-btn {
     width: 100%;

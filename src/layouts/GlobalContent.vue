@@ -2,6 +2,8 @@
   <el-main>
     <!-- 标签页 -->
     <tab-navs v-if="hasNavs"></tab-navs>
+    <!--    &lt;!&ndash; 面包屑 &ndash;&gt;-->
+    <!--    <breadcrumbs></breadcrumbs>-->
     <router-view :class="pageClass"></router-view>
   </el-main>
 </template>
@@ -9,6 +11,7 @@
 <script>
 import TabNavs from './TabNavs'
 import { createNamespacedHelpers } from 'vuex'
+// import Breadcrumbs from './Breadcrumbs'
 const { mapState } = createNamespacedHelpers('common')
 export default {
   name: 'GlobalContent',
@@ -26,10 +29,15 @@ export default {
 
 <style scoped lang="scss">
 .el-main {
-  background: #f4f7fa;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: $--bg-color-basic;
+  /*padding: 0;*/
   .page-block {
+    flex-grow: 1;
+    overflow-x: hidden;
     padding: 20px;
+    background: #fff;
   }
 }
 </style>

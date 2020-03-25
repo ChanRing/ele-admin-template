@@ -4,6 +4,8 @@
     :default-active="activeIndex"
     :mode="mode"
     :collapse="collapse"
+    @select="routerToName"
+    v-bind="menuStyle"
   >
     <template v-for="(menu, m) in menus">
       <el-submenu v-if="menu.children" :key="m" :index="menu.name">
@@ -22,14 +24,9 @@
 </template>
 
 <script>
-// import { Menu, MenuItem, Submenu } from 'element-ui'
+import variables from '../../../styles/variables.scss'
 export default {
   name: 'NavMenu',
-  // components: {
-  //   [Menu.name]: Menu,
-  //   [MenuItem.name]: MenuItem,
-  //   [Submenu.name]: Submenu
-  // },
   props: {
     mode: {
       type: String,
@@ -48,15 +45,24 @@ export default {
   computed: {
     activeIndex() {
       return this.$route.name
+    },
+    menuStyle() {
+      const isDarkMenu = this.theme === 'dark' && this.mode === 'horizontal'
+      const textColor = isDarkMenu ? variables.light : ''
+      const activeTextColor = isDarkMenu ? '#ffd04b' : ''
+      const backgroundColor = isDarkMenu ? variables.dark : ''
+      return { textColor, activeTextColor, backgroundColor }
+    }
+  },
+  methods: {
+    routerToName(name) {
+      this.$router.push({ name })
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.el-menu {
-  background: transparent;
-}
 .nav-menu {
   &-vertical {
     height: 100%;

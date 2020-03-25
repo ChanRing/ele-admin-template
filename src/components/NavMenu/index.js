@@ -1,4 +1,7 @@
-/**
- *
- * Created By ChangRon 2020/03/20
- */
+import NavMenu from './src/NavMenu'
+
+NavMenu.install = Vue => {
+  Vue.component(NavMenu.name, NavMenu)
+}
+
+export default NavMenu
