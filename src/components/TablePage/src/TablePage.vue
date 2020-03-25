@@ -69,7 +69,6 @@ export default {
       return {
         data: this.tableData,
         stripe: true,
-        height: 'calc(100% - 48px)',
         ...this.subProps
       }
     },
@@ -154,6 +153,9 @@ export default {
 .table-page {
   flex: 1;
   overflow: hidden;
+  .el-table {
+    height: calc(100% - 48px);
+  }
 }
 .pagination {
   padding: 10px;
