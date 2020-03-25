@@ -71,6 +71,6 @@ export default [
   {
     url: '/menus/get',
     type: 'get',
-    response: () => require('./data/permision')
+    response: () => require('./permision')
   }
 ]

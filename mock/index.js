@@ -1,9 +1,9 @@
 import Mock from 'mockjs'
 import Qs from 'qs'
 
-import mocksData from './mocksData'
-
-const mocks = [...mocksData]
+import dataList from './data/dataList'
+import dataList1 from './data/dataList1'
+const mocks = [...dataList, ...dataList1]
 
 // for front mock
 // please use it cautiously, it will redefine XMLHttpRequest,

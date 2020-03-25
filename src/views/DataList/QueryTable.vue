@@ -5,18 +5,25 @@
       :form="form"
       :form-items="formItems"
     ></search-bar>
-    <table-page :columns="columns" :data="data" has-index></table-page>
+    <table-page
+      ref="table"
+      :columns="columns"
+      :api="api"
+      has-index
+    ></table-page>
   </div>
 </template>
 
 <script>
 import SearchBar from '../../components/SearchBar'
 import TablePage from '../../components/TablePage'
+import { getDataList1 } from '../../api'
 export default {
   name: 'QueryTable',
   components: { SearchBar, TablePage },
   data() {
     return {
+      api: getDataList1,
       buttons: [
         {
           type: 'primary',
@@ -88,6 +95,9 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    this.$refs.table.getTableData()
   }
 }
 </script>
