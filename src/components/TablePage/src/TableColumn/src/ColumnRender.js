@@ -1,6 +1,3 @@
-/**
- * JSX渲染列
- */
 const ColumnRender = {
   name: 'ColumnRender',
   functional: true,

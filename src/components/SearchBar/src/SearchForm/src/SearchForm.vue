@@ -37,9 +37,12 @@
 </template>
 
 <script>
+import { deepClone } from '@/utils/common'
+
 export default {
   name: 'SearchForm',
   props: {
+    // 表单项的标签宽度
     labelWidth: {
       type: String,
       default: '80px'
@@ -70,16 +73,18 @@ export default {
     }
   },
   methods: {
-    // 搜索按钮点击时触发
     handleSearch() {
+      // 搜索按钮点击时触发
       this.$emit('search', this.form)
     },
-    // 重置按钮点击时触发
     handleReset() {
+      const form = deepClone(this.form)
       this.formItems.forEach(item => {
-        this.form[item.prop] = ''
+        form[item.prop] = ''
       })
-      this.$emit('reset', this.form)
+      // 重置按钮点击时触发
+      // @arg 返回重置后的form对象
+      this.$emit('reset', form)
     },
     isDatePicker(type) {
       const types = [
@@ -103,7 +108,7 @@ export default {
 .search-form {
   position: relative;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 0;
   border: $--border-primary;
   background: $--bg-color-panel;
   border-radius: 5px;

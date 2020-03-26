@@ -12,14 +12,9 @@
 </template>
 
 <script>
-// import { Input, Tree } from 'element-ui'
 // 树形组件封装
 export default {
   name: 'TreePicker',
-  // components: {
-  //   [Input.name]: Input,
-  //   [Tree.name]: Tree
-  // },
   props: {
     // 树形数据请求接口
     api: Function,

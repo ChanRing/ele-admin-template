@@ -6,8 +6,8 @@
         v-show="showFilters"
         :form="form"
         :form-items="formItems"
-        @search="form => $emit('search', form)"
-        @reset="form => $emit('reset', form)"
+        @search="handleSearch"
+        @reset="handleReset"
       ></search-form>
     </transition>
 
@@ -45,6 +45,12 @@
 <script>
 import SearchForm from './SearchForm'
 
+/**
+ * todo:
+ * props.form、props.formItems
+ * 以及@search和@reset
+ * 应该还有优化的空间
+ */
 export default {
   name: 'SearchBar',
   components: { SearchForm },
@@ -70,10 +76,24 @@ export default {
   },
   computed: {
     _buttons() {
+      // 默认显示前3个按钮
       return this.buttons.slice(0, this.maxButton)
     },
     moreButtons() {
+      // 超出则划分到更多功能组
       return this.buttons.slice(this.maxButton)
+    }
+  },
+  methods: {
+    handleSearch(form) {
+      // 传递搜索事件
+      // @arg form
+      this.$emit('search', form)
+    },
+    handleReset(form) {
+      // 传递重置事件
+      // @arg form
+      this.$emit('reset', form)
     }
   }
 }

@@ -1,6 +1,6 @@
 # TreePicker
 
-import { Input, Tree } from 'element-ui' 树形组件封装
+树形组件封装
 
 ## Props
 

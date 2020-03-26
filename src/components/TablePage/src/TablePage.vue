@@ -24,8 +24,8 @@ import TableColumn from './TableColumn'
 import sortable from './mixins/sortable'
 
 /**
- * 基础的使用方式与官方版的保持一致，在此基础上新增了加载数据的方法和分页组件。
- * 你调用组件的时候无需进行分页逻辑处理，仅需向TablePage组件传递:api="Promise"即可
+ * 1. 基础的使用方式与官方版的保持一致，在此基础上新增了加载数据的方法和分页组件。
+ * 2. 你调用组件的时候无需进行分页逻辑处理，仅需向TablePage组件传递:api="请求接口"即可
  */
 export default {
   name: 'TablePage',
@@ -44,7 +44,7 @@ export default {
     hasSelection: Boolean,
     // 传递给 el-table 的属性集合，具体属性可参考 el-table
     subProps: Object,
-    // 表格列的定义，具体属性可参考 el-table-column
+    // 表格列的定义，具体属性可参考[tableColumn](./TableColumn/src/README.md)
     columns: {
       type: Array,
       required: true
@@ -151,21 +151,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// @vuese
 // https://blog.csdn.net/ohradiance/article/details/78980242
 // 解决el-table在flex布局下的高度继承问题
 .table-page {
-  /*position: relative;*/
+  position: relative;
   flex-grow: 1;
-  /*.el-table {*/
-  /*  position: absolute;*/
-  /*  width: 100%;*/
-  /*}*/
+  .el-table,
+  .el-pagination {
+    position: absolute;
+    width: 100%;
+  }
 }
 .el-pagination {
-  /*position: absolute;*/
   padding: 10px;
   text-align: center;
-  /*bottom: 0;*/
-  /*width: 100%;*/
+  bottom: 0;
 }
 </style>

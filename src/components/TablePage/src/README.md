@@ -1,6 +1,6 @@
 # TablePage
 
-基础的使用方式与官方版的保持一致，在此基础上新增了加载数据的方法和分页组件。 你调用组件的时候无需进行分页逻辑处理，仅需向TablePage组件传递:api="Promise"即可
+1. 基础的使用方式与官方版的保持一致，在此基础上新增了加载数据的方法和分页组件。 2. 你调用组件的时候无需进行分页逻辑处理，仅需向TablePage组件传递:api="请求接口"即可
 
 ## Props
 
@@ -13,7 +13,7 @@
 |hasIndex|是否有索引列|`Boolean`|`false`|-|
 |hasSelection|是否有选择列|`Boolean`|`false`|-|
 |subProps|传递给 el-table 的属性集合，具体属性可参考 el-table|`Object`|`false`|-|
-|columns|表格列的定义，具体属性可参考 el-table-column|`Array`|`true`|-|
+|columns|表格列的定义，具体属性可参考[tableColumn](./TableColumn/src/README.md)|`Array`|`true`|-|
 |hasPagination|是否拥有分页组件|`Boolean`|`false`|-|
 |paginationAttrs|分页组件属性集合，具体属性可参考 el-pagination|`Object`|`false`|-|
 |resolveData|允许在此方法中修改表格的data|`Function`|`false`|data => data|

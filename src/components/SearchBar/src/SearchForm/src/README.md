@@ -5,7 +5,7 @@
 <!-- @vuese:SearchForm:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|labelWidth|-|`String`|`false`|80px|
+|labelWidth|表单项的标签宽度|`String`|`false`|80px|
 |formItems|表单项数组|`Array`|`false`|[]|
 |form|表单对象|`Object`|`true`|-|
 |showButton|是否显示按钮 默认会根据formItems的长度来判断 如果通过插槽的形式传入表单项则要设置为true|`Boolean`|`false`|-|
@@ -18,8 +18,8 @@
 <!-- @vuese:SearchForm:events:start -->
 |Event Name|Description|Parameters|
 |---|---|---|
-|search|-|-|
-|reset|-|-|
+|search|搜索按钮点击时触发|-|
+|reset|重置按钮点击时触发|返回重置后的form对象|
 
 <!-- @vuese:SearchForm:events:end -->
 

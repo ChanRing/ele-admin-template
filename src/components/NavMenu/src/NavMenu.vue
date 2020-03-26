@@ -28,15 +28,21 @@ import variables from '../../../styles/variables.scss'
 export default {
   name: 'NavMenu',
   props: {
+    // 菜单栏的模式
+    // 横向horizontal 纵向vertical
     mode: {
       type: String,
       default: 'vertical'
     },
+    // 是否收起菜单栏
     collapse: Boolean,
+    // 菜单栏的主题
+    // 深色dark 浅色light
     theme: {
       type: String,
       default: 'dark'
     },
+    // 菜单配置项
     menus: {
       type: Array,
       required: true
