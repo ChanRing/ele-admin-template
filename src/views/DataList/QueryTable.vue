@@ -87,7 +87,9 @@ export default {
           buttons: [
             {
               label: '修改',
-              callback() {}
+              callback(rowData) {
+                console.log(JSON.stringify(rowData))
+              }
             },
             {
               label: '删除',

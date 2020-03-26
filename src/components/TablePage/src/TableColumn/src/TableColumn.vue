@@ -7,12 +7,12 @@
         :key="ch"
       ></table-column>
     </template>
-    <template scope="scope" v-if="isSlotColumn(_column)">
+    <template v-slot:default="slotProps" v-if="isSlotColumn(_column)">
       <template v-if="_column.buttons">
-        <button-slot :scope="scope" :column="_column"></button-slot>
+        <button-slot :scope="slotProps" :column="_column"></button-slot>
       </template>
       <template v-if="_column.render">
-        <j-s-x-slot :scope="scope" :column="_column"></j-s-x-slot>
+        <j-s-x-slot :scope="slotProps" :column="_column"></j-s-x-slot>
       </template>
     </template>
   </el-table-column>
