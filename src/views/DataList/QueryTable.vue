@@ -5,6 +5,7 @@
       :form="form"
       :form-items="formItems"
     ></search-bar>
+    <!--    <div :style="{ height: height + 'px' }"></div>-->
     <table-page
       ref="table"
       :columns="columns"
@@ -23,6 +24,7 @@ export default {
   components: { SearchBar, TablePage },
   data() {
     return {
+      height: 200,
       api: getDataList1,
       buttons: [
         {
@@ -98,6 +100,9 @@ export default {
   },
   mounted() {
     this.$refs.table.getTableData()
+    setInterval(() => {
+      this.height = Math.random() * 200
+    }, 3000)
   }
 }
 </script>

@@ -72,8 +72,6 @@ export default {
 
 <style scoped lang="scss">
 .global-header {
-  padding-left: 0;
-  padding-right: 0;
   display: flex;
   align-items: center;
   .brand {
@@ -105,7 +103,7 @@ export default {
     &-link {
       display: flex;
       align-items: center;
-      padding: 0 20px;
+      padding-left: 20px;
       color: #fff;
     }
   }

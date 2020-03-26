@@ -82,9 +82,9 @@ export default {
 <style scoped lang="scss">
 .search-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  width: 100%;
   padding-top: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 </style>

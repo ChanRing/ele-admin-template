@@ -11,7 +11,6 @@
     </el-table>
     <el-pagination
       ref="pagination"
-      class="pagination"
       v-if="hasPagination"
       v-bind="_paginationAttrs"
       @size-change="handleSizeChange"
@@ -69,6 +68,7 @@ export default {
       return {
         data: this.tableData,
         stripe: true,
+        border: true,
         height: 'calc(100% - 48px)',
         ...this.subProps
       }
@@ -151,14 +151,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// https://blog.csdn.net/ohradiance/article/details/78980242
+// 解决el-table在flex布局下的高度继承问题
 .table-page {
-  flex: 1;
-  overflow: hidden;
-  .el-table {
-  }
+  /*position: relative;*/
+  flex-grow: 1;
+  /*.el-table {*/
+  /*  position: absolute;*/
+  /*  width: 100%;*/
+  /*}*/
 }
-.pagination {
+.el-pagination {
+  /*position: absolute;*/
   padding: 10px;
   text-align: center;
+  /*bottom: 0;*/
+  /*width: 100%;*/
 }
 </style>

@@ -29,15 +29,11 @@ export default {
 
 <style scoped lang="scss">
 .el-main {
-  /*display: flex;*/
-  /*flex-direction: column;*/
   background: $--bg-color-basic;
   .page-block {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    /*flex: 1;*/
-    /*overflow: hidden;*/
-    height: calc(100vh - 100px);
     background: #fff;
     padding: 0 20px;
   }

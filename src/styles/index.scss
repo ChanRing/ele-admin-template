@@ -5,12 +5,6 @@
 @import 'mixin';
 @import 'variables';
 
-#app {
-  height: 100vh;
-  display: flex;
-  user-select: none;
-}
-
 .dark {
   background: $--color-dark !important;
   color: $--color-light !important;
