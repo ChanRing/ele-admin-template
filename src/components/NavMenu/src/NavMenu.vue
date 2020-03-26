@@ -4,7 +4,6 @@
     :default-active="activeIndex"
     :mode="mode"
     :collapse="collapse"
-    @select="routerToName"
     v-bind="menuStyle"
   >
     <template v-for="(menu, m) in menus">
@@ -15,7 +14,12 @@
         </template>
         <nav-menu :menus="menu.children"></nav-menu>
       </el-submenu>
-      <el-menu-item v-else :key="m" :index="menu.name">
+      <el-menu-item
+        v-else
+        :key="m"
+        :index="menu.name"
+        @click="handleClick(menu)"
+      >
         <i :class="menu.icon"></i>
         <span slot="title">{{ menu.title }}</span>
       </el-menu-item>
@@ -61,8 +65,17 @@ export default {
     }
   },
   methods: {
-    routerToName(name) {
-      this.$router.push({ name })
+    handleClick(route) {
+      const { name, target, query } = route
+      if (target === '_blank') {
+        // 以新窗口的方式打开
+        const { href } = this.$router.resolve({ name, query })
+        window.open(href, target)
+      } else {
+        // 处理重复路由报错信息
+        // https://github.com/ElemeFE/element/pull/17269
+        this.$router.push({ name, query }).catch(() => {})
+      }
     }
   }
 }
@@ -71,9 +84,9 @@ export default {
 <style scoped lang="scss">
 .nav-menu {
   &-vertical {
-    height: 100%;
+    height: calc(100% - 56px);
     &:not(.el-menu--collapse) {
-      width: 232px;
+      width: 300px;
     }
   }
 }

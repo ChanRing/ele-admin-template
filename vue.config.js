@@ -83,7 +83,10 @@ module.exports = {
     loaderOptions: {
       scss: {
         // 传入共享的全局变量
-        prependData: `@import "~@/styles/variables.scss";`
+        prependData: `
+        @import "~@/styles/variables.scss";
+        @import "~@/styles/mixins.scss";
+        `
       }
     }
   }

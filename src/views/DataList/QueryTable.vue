@@ -10,6 +10,7 @@
       ref="table"
       :columns="columns"
       :api="api"
+      sortable
       has-index
     ></table-page>
   </div>

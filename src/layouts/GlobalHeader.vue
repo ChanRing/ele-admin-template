@@ -2,18 +2,13 @@
   <el-header :class="['global-header', theme]">
     <!-- LOGO区域 -->
     <div :class="['brand', { 'full-brand': !this.collapse }]">
-      项目主题名称
+      ElementUI中台模板
     </div>
 
-    <!--    &lt;!&ndash; 当出现侧边菜单栏才存在折叠按钮 &ndash;&gt;-->
-    <!--    <template v-if="direction === 'vertical'">-->
-    <!--      <div class="toggle-btn" @click="toggleCollapse">-->
-    <!--        <i :class="toggleIcon"></i>-->
-    <!--      </div>-->
-    <!--    </template>-->
-
-    <!-- 横向菜单区域 -->
-    <nav-menu v-if="isHorizontal" :menus="menus" :mode="direction"></nav-menu>
+    <slot>
+      <!-- 横向菜单区域 -->
+      <nav-menu v-if="isHorizontal" :menus="menus" :mode="direction"></nav-menu>
+    </slot>
 
     <!-- 用户信息区域 -->
     <el-dropdown
@@ -38,7 +33,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import NavMenu from '../components/NavMenu/src/NavMenu'
-const { mapState, mapActions } = createNamespacedHelpers('common')
+const { mapState } = createNamespacedHelpers('common')
 export default {
   name: 'GlobalHeader',
   components: { NavMenu },
@@ -49,23 +44,16 @@ export default {
       menus: 'menus',
       theme: 'theme'
     }),
-    toggleIcon() {
-      const fold = this.collapse ? 'right' : 'left'
-      return `el-icon-d-arrow-${fold}`
-    },
     avatar() {
       // todo 待接入头像
       return this.username.substr(0, 1)
     },
     username() {
-      return '赖昌荣'
+      return '管理员'
     },
     isHorizontal() {
       return this.direction === 'horizontal'
     }
-  },
-  methods: {
-    ...mapActions(['toggleCollapse'])
   }
 }
 </script>
@@ -78,12 +66,11 @@ export default {
     width: 64px;
     height: 60px;
     line-height: 60px;
-    text-align: center;
-    font-size: $--font-size-main;
-    transition: 0.3s ease-in-out;
-    &.full-brand {
-      width: 232px;
-    }
+    font-size: 26px;
+    /*transition: 0.3s ease-in-out;*/
+    /*&.full-brand {*/
+    /*  width: 232px;*/
+    /*}*/
   }
   .toggle-btn {
     height: 60px;

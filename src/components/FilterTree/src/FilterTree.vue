@@ -1,12 +1,15 @@
 <template>
-  <div class="filter-tree-container">
-    <el-input :placeholder="placeholder" v-model="filterText"></el-input>
+  <div class="filter-tree">
+    <div class="filter-input">
+      <el-input :placeholder="placeholder" v-model="filterText"></el-input>
+    </div>
     <el-tree
       ref="tree"
       class="filter-tree"
       :data="treeData"
       v-bind="_subProps"
       :filter-node-method="filterNodeMethod"
+      :render-content="renderContent"
     ></el-tree>
   </div>
 </template>
@@ -75,16 +78,49 @@ export default {
       if (this.api) {
         this.treeData = (await this.api(this.params)).data
       }
+    },
+    renderContent(h, { node, data }) {
+      return (
+        <div class="render-item">
+          <i class={'tree-icon ' + data.icon}></i>
+          <span class="el-tree-node__label">{node.label}</span>
+          <el-dropdown>
+            <i class="el-icon-more"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>复制</el-dropdown-item>
+              <el-dropdown-item>修改</el-dropdown-item>
+              <el-dropdown-item>删除</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+      )
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.filter-tree-container {
-  padding: 20px;
+.filter-input {
+  padding-left: 20px;
+  padding-right: 20px;
 }
+
+::v-deep .el-tree-node__content {
+  height: 40px;
+}
+
 .filter-tree {
-  margin-top: 20px;
+  margin-top: 10px;
+  ::v-deep .render-item {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    & .el-tree-node__label {
+      width: calc(100% - 2 * 26px);
+      @include ellipsis;
+    }
+  }
 }
 </style>

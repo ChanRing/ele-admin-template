@@ -29,7 +29,6 @@ export default {
 
 <style scoped lang="scss">
 .el-main {
-  background: $--bg-color-basic;
   .page-block {
     height: 100%;
     display: flex;

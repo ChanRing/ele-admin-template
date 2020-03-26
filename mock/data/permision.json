@@ -22,6 +22,17 @@
         "name": "standardTable",
         "icon": "el-icon-date"
       }]
+    },
+    {
+      "title": "表单",
+      "icon": "el-icon-document",
+      "name": "form",
+      "children": [{
+        "title": "表单设计器",
+        "name": "generator",
+        "component": "@/views/Form/Generator",
+        "target": "_blank"
+      }]
     }
   ]
 }

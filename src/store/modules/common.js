@@ -13,6 +13,8 @@ const state = {
   menus: [],
   routes: []
 }
+// 生成路由方法
+function generateRouter() {}
 
 const actions = {
   toggleCollapse({ commit }) {
@@ -20,10 +22,7 @@ const actions = {
   },
   async getMenus({ commit }) {
     commit('getMenus', (await getMenus()).data)
-  },
-  async generateRouter({ commit }) {
-    const routes = []
-    commit('generateRouter', routes)
+    generateRouter()
   }
 }
 
@@ -33,9 +32,6 @@ const mutations = {
   },
   getMenus(state, menus) {
     state.menus = menus
-  },
-  generateRouter(state, routes) {
-    state.routes = routes
   }
 }
 

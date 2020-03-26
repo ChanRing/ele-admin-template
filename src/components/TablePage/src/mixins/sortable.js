@@ -2,6 +2,7 @@
  * 拖放排序列表插件
  * 支持可插拔的方式
  */
+import Sortable from 'sortablejs'
 export default {
   props: {
     // 是否可以拖放排序
@@ -9,19 +10,20 @@ export default {
       type: Boolean,
       default: false
     },
+    // 指定行的row-key
     rowKey: {
       type: String,
       default: 'id'
     }
   },
   methods: {
-    // 行拖拽事件
-    rowDrop() {
+    // 行拖拽事件初始化
+    rowDropInit(sortable) {
+      if (!sortable) return
       this.$nextTick(() => {
-        if (!this.Sortable) return
         // 此时找到的元素是要拖拽元素的父容器
         const tbody = document.querySelector('.el-table__body-wrapper tbody')
-        this.Sortable.create(tbody, {
+        Sortable.create(tbody, {
           draggable: '.el-table__row',
           onEnd: ({ newIndex, oldIndex }) => {
             const currRow = this.tableData.splice(oldIndex, 1)[0]
@@ -32,15 +34,10 @@ export default {
     }
     // 暂时不处理列排序的情况
   },
-  computed: {
-    /**
-     * 可插拔的方式注册Sortable
-     * @returns {Sortable|null}
-     * @constructor
-     */
-    Sortable() {
-      if (!this.sortable) return null
-      return require('sortablejs').Sortable
+  watch: {
+    sortable: {
+      immediate: true,
+      handler: 'rowDropInit'
     }
   }
 }
