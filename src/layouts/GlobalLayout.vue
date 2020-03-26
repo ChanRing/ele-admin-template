@@ -7,7 +7,7 @@
     </el-container>
   </el-container>
 </template>
-a
+
 <script>
 import GlobalHeader from './GlobalHeader'
 import GlobalAside from './GlobalAside'
