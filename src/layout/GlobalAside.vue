@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <nav-menu :menus="menus" :collapse="collapse" :theme="theme"></nav-menu>
+    <nav-menu :menus="menus" :collapse="collapse"></nav-menu>
     <div class="collapse-button">
       <i
         :class="`el-icon-s-${collapse ? 'unfold' : 'fold'}`"
@@ -19,7 +19,6 @@ export default {
   computed: {
     ...mapState({
       collapse: 'collapse',
-      theme: 'theme',
       menus: 'menus'
     })
   },

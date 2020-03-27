@@ -36,9 +36,13 @@
       </el-dropdown>
     </div>
 
-    <el-button type="text" @click="showFilters = !showFilters"
-      >筛选条件 <i class="el-icon-paperclip el-icon--right"></i
-    ></el-button>
+    <div class="links">
+      <!-- 右侧links插槽 -->
+      <slot name="links"></slot>
+      <el-link @click="showFilters = !showFilters" :underline="false">
+        <span>筛选条件 <i class="el-icon-paperclip"></i></span>
+      </el-link>
+    </div>
   </div>
 </template>
 
@@ -106,5 +110,14 @@ export default {
   padding-top: 20px;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
+}
+.el-link {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: $--border-primary;
+  &:last-child {
+    border-right: none;
+  }
 }
 </style>

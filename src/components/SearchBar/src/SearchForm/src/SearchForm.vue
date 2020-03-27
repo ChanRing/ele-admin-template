@@ -111,7 +111,7 @@ export default {
   padding: 10px 0;
   border: $--border-primary;
   background: $--bg-color-panel;
-  border-radius: 5px;
+  border-radius: 4px;
   margin-bottom: 10px;
   &::after {
     content: '';

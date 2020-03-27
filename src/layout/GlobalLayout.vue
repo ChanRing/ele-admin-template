@@ -43,9 +43,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-.el-container {
-  background: $--bg-color-basic;
-}
-</style>

@@ -16,7 +16,7 @@
 |columns|表格列的定义，具体属性可参考[tableColumn](./TableColumn/src/README.md)|`Array`|`true`|-|
 |hasPagination|是否拥有分页组件|`Boolean`|`false`|-|
 |paginationAttrs|分页组件属性集合，具体属性可参考 el-pagination|`Object`|`false`|-|
-|resolveData|允许在此方法中修改表格的data|`Function`|`false`|data => data|
+|resolveData|允许在此方法中修改接口返回的data|`Function`|`false`|data => data|
 
 <!-- @vuese:TablePage:props:end -->
 

@@ -48,7 +48,7 @@ export default {
   .el-form {
     width: 400px;
     padding: 0 20px;
-    border-radius: 5px;
+    border-radius: 4px;
     z-index: 10;
     background: rgba(0, 0, 0, 0.2);
     ::v-deep input {

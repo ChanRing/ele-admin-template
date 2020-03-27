@@ -56,7 +56,7 @@ export default {
     },
     // 分页组件属性集合，具体属性可参考 el-pagination
     paginationAttrs: Object,
-    // 允许在此方法中修改表格的data
+    // 允许在此方法中修改接口返回的data
     resolveData: {
       type: Function,
       default: data => data
@@ -68,7 +68,6 @@ export default {
       return {
         data: this.tableData,
         stripe: true,
-        border: true,
         height: 'calc(100% - 48px)',
         ...this.subProps
       }
@@ -162,9 +161,17 @@ export default {
     position: absolute;
     width: 100%;
   }
+  // 表头样式重置
+  ::v-deep .el-table__header-wrapper {
+    tr,
+    th {
+      background: $--bg-color-panel;
+    }
+  }
 }
+
 .el-pagination {
-  padding: 10px;
+  padding: 10px 0;
   text-align: center;
   bottom: 0;
 }

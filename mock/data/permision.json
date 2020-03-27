@@ -30,7 +30,7 @@
       "children": [{
         "title": "表单设计器",
         "name": "generator",
-        "component": "@/views/Form/Generator",
+        "component": "@/views/formGenerator",
         "target": "_blank"
       }]
     }

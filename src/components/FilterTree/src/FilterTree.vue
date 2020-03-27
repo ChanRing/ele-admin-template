@@ -19,10 +19,10 @@
 export default {
   name: 'TreePicker',
   props: {
-    // 树形数据请求接口
-    api: Function,
-    // 请求参数
-    params: [Object, String],
+    // // 树形数据请求接口
+    // api: Function,
+    // // 请求参数
+    // params: Object,
     // 输入框提示语
     placeholder: {
       type: String,
@@ -39,6 +39,12 @@ export default {
     filterable: {
       type: Boolean,
       default: true
+    },
+    // 下拉框组菜单对象
+    // [{ label: '菜单名', callback: '回调方法，参数为当前节点', event: '事件名，传了callback可以为空' }]
+    dropdownItems: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -74,11 +80,11 @@ export default {
       const { props = {} } = this._subProps
       return data[props.label || 'label'].indexOf(value) !== -1
     },
-    async getTreeData() {
-      if (this.api) {
-        this.treeData = (await this.api(this.params)).data
-      }
-    },
+    // async getTreeData() {
+    //   if (this.api) {
+    //     this.treeData = (await this.api(this.params)).data
+    //   }
+    // },
     renderContent(h, { node, data }) {
       return (
         <div class="render-item">
@@ -87,9 +93,19 @@ export default {
           <el-dropdown>
             <i class="el-icon-more"></i>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>复制</el-dropdown-item>
-              <el-dropdown-item>修改</el-dropdown-item>
-              <el-dropdown-item>删除</el-dropdown-item>
+              {this.dropdownItems.map(item => {
+                return (
+                  <el-dropdown-item
+                    nativeOnClick={() => {
+                      // 点击下拉菜单时触发
+                      this.$emit('command', item.event, data)
+                      item.callback && item.callback(data)
+                    }}
+                  >
+                    {item.label}
+                  </el-dropdown-item>
+                )
+              })}
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -120,6 +136,12 @@ export default {
     & .el-tree-node__label {
       width: calc(100% - 2 * 26px);
       @include ellipsis;
+    }
+    & .el-icon-more {
+      transform: rotate(90deg);
+      &:hover {
+        color: $--color-primary;
+      }
     }
   }
 }

@@ -31,7 +31,10 @@ import {
   Popover,
   DatePicker,
   Scrollbar,
-  Notification
+  Notification,
+  Link,
+  Divider,
+  Tooltip
   // MessageBox
 } from 'element-ui'
 
@@ -63,7 +66,10 @@ const components = [
   BreadcrumbItem,
   Popover,
   DatePicker,
-  Scrollbar
+  Scrollbar,
+  Link,
+  Divider,
+  Tooltip
 ]
 
 export default {

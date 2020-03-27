@@ -6,12 +6,10 @@
 import { getMenus } from '@/api'
 
 const state = {
+  brandName: 'ElementUI中台模板', //项目名称
   collapse: false, // 侧边栏是否折叠
   direction: 'vertical', // 菜单栏显示方式 horizontal vertical
-  theme: 'dark',
-  hasNavs: false,
-  menus: [],
-  routes: []
+  menus: [] // 菜单栏配置项
 }
 // 生成路由方法
 function generateRouter() {}

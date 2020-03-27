@@ -26,3 +26,13 @@ todo: props.form、props.formItems 以及@search和@reset 应该还有优化的�
 <!-- @vuese:SearchBar:events:end -->
 
 
+## Slots
+
+<!-- @vuese:SearchBar:slots:start -->
+|Name|Description|Default Slot Content|
+|---|---|---|
+|links|右侧links插槽|-|
+
+<!-- @vuese:SearchBar:slots:end -->
+
+

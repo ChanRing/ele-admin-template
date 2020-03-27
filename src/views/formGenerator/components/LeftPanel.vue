@@ -1,9 +1,13 @@
 <template>
   <el-tabs stretch>
     <el-tab-pane label="表单样式">
-      <filter-tree :data="styles"></filter-tree>
+      <filter-tree
+        :data="styles"
+        :dropdown-items="dropdown"
+        @command="handleCommand"
+      ></filter-tree>
       <div class="more-style-sheet">
-        <el-button icon="el-icon-circle-plus-outline">新增样式</el-button>
+        <el-button type="primary" plain>新增样式</el-button>
       </div>
     </el-tab-pane>
     <el-tab-pane label="控件"></el-tab-pane>
@@ -34,7 +38,18 @@ export default {
           icon: 'el-icon-document',
           label: '表单样式四'
         }
+      ],
+      dropdown: [
+        { label: '复制', event: 'copy' },
+        { label: '修改', event: 'change' },
+        { label: '删除', event: 'delete' }
       ]
+    }
+  },
+  methods: {
+    handleCommand(command, data) {
+      console.log(command, data)
+      this.$message.success(command)
     }
   }
 }
