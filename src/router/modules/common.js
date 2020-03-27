@@ -1,18 +1,19 @@
 /*
  * 公共模块的 router
  * */
+import GlobalLayout from '@/layout/GlobalLayout'
 
 export default [
   {
     path: '/',
     name: 'layout',
-    component: () => import('../../layouts/GlobalLayout'),
+    component: GlobalLayout,
     redirect: 'workbench',
     children: [
       {
         path: 'workbench',
         name: 'workbench',
-        component: () => import('../../views/Workbench'),
+        component: () => import('@/views/workbench'),
         meta: {
           title: '工作台'
         }
@@ -22,7 +23,7 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: () => import('../../views/Login'),
+    component: () => import('@/views/login'),
     meta: {
       title: '登录页面'
     }
@@ -30,7 +31,7 @@ export default [
   {
     path: '*',
     name: '404',
-    component: () => import('../../views/Error/404'),
+    component: () => import('@/views/error/404'),
     meta: {
       title: '抱歉，你的页面找不到了'
     }

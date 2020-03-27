@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import SearchBar from '../../components/SearchBar'
-import TablePage from '../../components/TablePage'
-import { getDataList1 } from '../../api'
+import SearchBar from '@/components/SearchBar'
+import TablePage from '@/components/TablePage'
+import { getDataList1 } from '@/api'
 export default {
   name: 'QueryTable',
   components: { SearchBar, TablePage },
@@ -88,8 +88,8 @@ export default {
           buttons: [
             {
               label: '修改',
-              callback(rowData) {
-                console.log(JSON.stringify(rowData))
+              callback() {
+                // console.log(JSON.stringify(rowData))
               }
             },
             {

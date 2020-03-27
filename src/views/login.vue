@@ -43,7 +43,7 @@ export default {
     color: $--color-primary;
   }
   &.background {
-    background: url('../assets/background.png') no-repeat center;
+    background: url('~@/assets/background.png') no-repeat center;
   }
   .el-form {
     width: 400px;

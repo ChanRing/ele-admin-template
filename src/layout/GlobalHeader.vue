@@ -32,7 +32,7 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
-import NavMenu from '../components/NavMenu/src/NavMenu'
+import NavMenu from '../components/NavMenu'
 const { mapState } = createNamespacedHelpers('common')
 export default {
   name: 'GlobalHeader',

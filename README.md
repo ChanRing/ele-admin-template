@@ -33,6 +33,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 │   ├── api                    # 所有请求
 │   ├── assets                 # 主题 字体等静态资源
 │   ├── components             # 全局公用组件
+│   ├── directive              # 全局指令
+│   ├── filters                # 全局 filter
 │   ├── layout                 # 全局 layout
 │   ├── router                 # 路由
 │   ├── store                  # 全局 store管理

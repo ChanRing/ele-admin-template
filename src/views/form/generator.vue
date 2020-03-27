@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LeftPanel from '@/views/Form/components/LeftPanel'
+import LeftPanel from './components/LeftPanel'
 export default {
   name: 'Generator',
   components: { LeftPanel }

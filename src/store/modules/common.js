@@ -3,7 +3,7 @@
  * Created By ChangRon 2020/03/20
  */
 
-import { getMenus } from '../../api'
+import { getMenus } from '@/api'
 
 const state = {
   collapse: false, // 侧边栏是否折叠

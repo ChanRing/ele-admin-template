@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import variables from '../../../styles/variables.scss'
+import variables from '@/styles/variables.scss'
 export default {
   name: 'NavMenu',
   props: {

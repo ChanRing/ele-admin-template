@@ -12,7 +12,7 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
-import NavMenu from '../components/NavMenu/src/NavMenu'
+import NavMenu from '../components/NavMenu'
 const { mapState, mapActions } = createNamespacedHelpers('common')
 export default {
   name: 'GlobalAside',
