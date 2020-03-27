@@ -17,7 +17,7 @@
 <script>
 // 树形组件封装
 export default {
-  name: 'TreePicker',
+  name: 'FilterTree',
   props: {
     // // 树形数据请求接口
     // api: Function,
