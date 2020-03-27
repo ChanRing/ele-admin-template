@@ -11,12 +11,18 @@ export default [
       {
         path: 'queryTable',
         name: 'queryTable',
-        component: () => import('../../views/DataList/QueryTable')
+        component: () => import('../../views/DataList/QueryTable'),
+        meta: {
+          title: '查询表格'
+        }
       },
       {
         path: 'standardTable',
         name: 'standardTable',
-        component: () => import('../../views/DataList/StandardTable')
+        component: () => import('../../views/DataList/StandardTable'),
+        meta: {
+          title: '标准表格'
+        }
       }
     ]
   }

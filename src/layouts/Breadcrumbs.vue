@@ -1,9 +1,9 @@
 <template>
   <div class="breadcrumbs">
-    <span class="breadcrumb">面包屑</span>
-    <el-popover trigger="hover" :content="content">
-      <i class="el-icon-info" slot="reference"></i>
-    </el-popover>
+    <span class="breadcrumb">{{ crumbName }}</span>
+    <!--    <el-popover trigger="hover" :content="content">-->
+    <!--      <i class="el-icon-info" slot="reference"></i>-->
+    <!--    </el-popover>-->
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   data() {
     return {
       content: '这是一段内容,这是一段内容,这是一段内容,这是一段内容。' // 可以在routes.meta里面配置
+    }
+  },
+  computed: {
+    crumbName() {
+      return this.$route.meta.title
     }
   }
 }
