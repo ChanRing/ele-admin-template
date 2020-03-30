@@ -18,11 +18,17 @@
           >
           </el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item class="vertify">
           <el-input v-model="form.code" placeholder="请输入验证码"></el-input>
+          <verification-code></verification-code>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" class="login-btn">登录</el-button>
+          <el-button
+            type="primary"
+            class="login-btn"
+            @click="$router.push({ name: 'workbench' })"
+            >登录</el-button
+          >
           <el-link :underline="false">忘记密码？</el-link>
         </el-form-item>
       </el-form>
@@ -32,14 +38,14 @@
 </template>
 
 <script>
-import waveWrapper from '@/views/login/components/waveWrapper'
+import waveWrapper from './components/WaveWrapper'
+import VerificationCode from './components/VertifyCode'
 export default {
   name: 'Login',
-  components: { waveWrapper },
+  components: { waveWrapper, VerificationCode },
   data() {
     return {
-      form: {},
-      hasBackground: true
+      form: {}
     }
   }
 }
@@ -79,6 +85,14 @@ export default {
     }
     &-item:last-child {
       text-align: center;
+    }
+    .vertify ::v-deep .el-form-item__content {
+      display: flex;
+      align-items: center;
+      .el-input {
+        width: calc(100% - 120px);
+        margin-right: 20px;
+      }
     }
   }
 }

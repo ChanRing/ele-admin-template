@@ -3,8 +3,6 @@
   <div>
     <svg
       class="waves"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 24 150 28"
       preserveAspectRatio="none"
       shape-rendering="auto"
@@ -17,7 +15,7 @@
       </defs>
       <g class="parallax">
         <use
-          v-for="i in 4"
+          v-for="i in number"
           :key="i"
           xlink:href="#gentle-wave"
           x="48"
@@ -32,11 +30,19 @@
 
 <script>
 export default {
-  name: 'wave',
+  name: 'WaveWrapper',
   props: {
+    // 生成波浪的颜色值
     color: {
       type: String,
       default: '#128EFF'
+    },
+    number: {
+      type: Number,
+      default: 3,
+      validator(number) {
+        return number <= 5
+      }
     }
   }
 }

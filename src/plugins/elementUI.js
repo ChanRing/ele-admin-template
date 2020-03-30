@@ -34,7 +34,9 @@ import {
   Notification,
   Link,
   Divider,
-  Tooltip
+  Tooltip,
+  Col,
+  Row
   // MessageBox
 } from 'element-ui'
 
@@ -69,7 +71,9 @@ const components = [
   Scrollbar,
   Link,
   Divider,
-  Tooltip
+  Tooltip,
+  Row,
+  Col
 ]
 
 export default {
