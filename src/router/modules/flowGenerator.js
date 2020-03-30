@@ -17,7 +17,7 @@ export default [
   {
     path: '/flowGenerator',
     name: 'flowGenerator',
-    components: () => import('@/views/flowGenerator/index'),
+    component: () => import('@/views/flowGenerator/index'),
     meta: {
       title: '流程设计器'
     }
