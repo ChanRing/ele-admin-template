@@ -29,3 +29,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@keyframes drift {
+  from {
+    transform: rotate(360deg);
+  }
+}
