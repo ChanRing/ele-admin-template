@@ -27,23 +27,15 @@
         </el-form-item>
       </el-form>
     </div>
-    <div class="waveWrapper waveAnimation">
-      <div class="waveWrapperInner bgTop">
-        <div class="wave waveTop"></div>
-      </div>
-      <div class="waveWrapperInner bgMiddle">
-        <div class="wave waveMiddle"></div>
-      </div>
-      <div class="waveWrapperInner bgBottom">
-        <div class="wave waveBottom"></div>
-      </div>
-    </div>
+    <wave></wave>
   </div>
 </template>
 
 <script>
+import Wave from '@/views/login/wave'
 export default {
   name: 'Login',
+  components: { Wave },
   data() {
     return {
       form: {},
@@ -71,7 +63,7 @@ export default {
 .login-brand {
   width: 398px;
   height: 300px;
-  background: url('../assets/undraw_work_chat_erdt.png') no-repeat;
+  background: url('../../assets/undraw_work_chat_erdt.png') no-repeat;
   background-size: cover;
 }
 .login-btn {
@@ -87,6 +79,4 @@ export default {
     text-align: center;
   }
 }
-
-  .
 </style>
