@@ -29,7 +29,7 @@
       "name": "form",
       "children": [{
         "title": "表单设计器",
-        "name": "generator",
+        "name": "formGenerator",
         "component": "@/views/formGenerator",
         "target": "_blank"
       }]

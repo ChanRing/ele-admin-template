@@ -27,15 +27,15 @@
         </el-form-item>
       </el-form>
     </div>
-    <wave></wave>
+    <wave-wrapper></wave-wrapper>
   </div>
 </template>
 
 <script>
-import Wave from '@/views/login/wave'
+import waveWrapper from '@/views/login/components/waveWrapper'
 export default {
   name: 'Login',
-  components: { Wave },
+  components: { waveWrapper },
   data() {
     return {
       form: {},
@@ -46,37 +46,40 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.login-wrap {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.login {
+  flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 900px;
-  height: 520px;
-  background-color: #fff;
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
-}
-.login-brand {
-  width: 398px;
-  height: 300px;
-  background: url('../../assets/undraw_work_chat_erdt.png') no-repeat;
-  background-size: cover;
-}
-.login-btn {
-  width: 100%;
-}
-
-.el-form {
-  width: 300px;
-  h1.title {
-    font-size: $--font-size-main;
+  justify-content: center;
+  .login-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 900px;
+    height: 520px;
+    background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
   }
-  &-item:last-child {
-    text-align: center;
+  .login-brand {
+    width: 398px;
+    height: 300px;
+    background: url('../../assets/undraw_work_chat_erdt.png') no-repeat;
+    background-size: cover;
+  }
+  .login-btn {
+    width: 100%;
+  }
+
+  .el-form {
+    width: 300px;
+    h1.title {
+      font-size: $--font-size-main;
+      text-align: center;
+    }
+    &-item:last-child {
+      text-align: center;
+    }
   }
 }
 </style>

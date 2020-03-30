@@ -1,6 +1,9 @@
 /**
- * 表单设计器路由
- * Created By ChangRon 2020/03/26
+ * @Description: 表单设计器路由
+ * @Author: laicr
+ * @Date: 2020-03-30 10:50:11
+ * @LastEditors: laicr
+ * @LastEditTime: 2020-03-30 10:53:33
  */
 
 export default [
@@ -14,12 +17,11 @@ export default [
     children: []
   },
   {
-    path: '/generator',
-    name: 'generator',
+    path: '/formGenerator',
+    name: 'formGenerator',
     component: () => import('@/views/formGenerator/index'),
     meta: {
-      title: '表单设计器',
-      showMenu: false
+      title: '表单设计器'
     }
   }
 ]
