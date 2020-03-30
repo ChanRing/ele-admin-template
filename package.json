@@ -28,7 +28,7 @@
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@babel/register": "7.0.0",
+    "@babel/register": "^7.9.0",
     "@babel/runtime": "^7.9.2",
     "@vue/cli-plugin-babel": "^4.2.0",
     "@vue/cli-plugin-eslint": "^4.2.0",
