@@ -110,7 +110,7 @@ export default {
   width: 100%;
   padding: 10px 0;
   border: $--border-basic;
-  background-color: $--border-container;
+  background-color: $--bg-color-container;
   border-radius: 4px;
   margin-bottom: 10px;
   &::after {
@@ -121,7 +121,7 @@ export default {
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
-    background-color: $--border-container;
+    background-color: $--bg-color-container;
     border-right: $--border-basic;
     border-bottom: $--border-basic;
   }

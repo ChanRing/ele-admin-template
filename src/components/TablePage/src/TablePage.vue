@@ -30,6 +30,8 @@ import sortable from './mixins/sortable'
 export default {
   name: 'TablePage',
   components: { TableColumn },
+  // @vuese
+  // [sortable](./mixins/sortable)
   mixins: [sortable],
   props: {
     // 表格数据请求的接口
@@ -150,7 +152,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// @vuese
 // https://blog.csdn.net/ohradiance/article/details/78980242
 // 解决el-table在flex布局下的高度继承问题
 .table-page {
@@ -161,13 +162,12 @@ export default {
   .el-table,
   .el-pagination {
     position: absolute;
-    /*width: 100%;*/
   }
   // 表头样式重置
   ::v-deep .el-table__header-wrapper {
     tr,
     th {
-      background-color: $--border-container;
+      background-color: $--bg-color-container;
     }
   }
 }

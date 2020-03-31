@@ -72,7 +72,7 @@ export default {
       &:hover {
         cursor: move;
         color: $--color-primary;
-        background-color: $--bg-color-panel;
+        background-color: $--bg-color-container;
       }
       i {
         font-size: 20px;

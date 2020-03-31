@@ -1,8 +1,6 @@
-
-const resolve = path => require('path').join(__dirname, path)
+const path = require('path')
 
 const resolveMD = name => `${name}/src/${name}`
-
 module.exports = {
   title: '基于Sass化的协同办公平台', // 设置网站标题
   description: '项目说明',
@@ -22,7 +20,7 @@ module.exports = {
         resolveMD('SearchBar'),
         resolveMD('TablePage')
       ]
-    },
+    }
   },
   markdown: {
     lineNumbers: true
@@ -30,7 +28,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': resolve('../src')
+        '@': path.join(__dirname, '../src')
       }
     }
   },

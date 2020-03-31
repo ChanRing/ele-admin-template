@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import 'normalize.css/normalize.css' // 样式重置
+import './styles/reset.css' // 样式重置
 import './styles/index.scss' // 通用样式
 
 import ElementUI from './plugins/elementUI'

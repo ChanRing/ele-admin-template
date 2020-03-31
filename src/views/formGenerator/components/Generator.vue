@@ -68,7 +68,7 @@ export default {
       padding: 0 12px;
       margin: 0 10px;
       &:hover {
-        background-color: $--border-container;
+        background-color: $--bg-color-container;
       }
     }
   }

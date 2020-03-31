@@ -110,6 +110,6 @@ export default {
 
 <style scoped lang="scss">
 .filter-tree {
-  background-color: $--border-container;
+  background-color: $--bg-color-container;
 }
 </style>

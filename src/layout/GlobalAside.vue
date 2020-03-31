@@ -32,7 +32,7 @@ export default {
 <style scoped lang="scss">
 .collapse-button {
   height: 56px;
-  background-color: $--border-container;
+  background-color: $--bg-color-container;
   border-right: $--border-basic;
   text-align: right;
   i {
