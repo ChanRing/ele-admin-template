@@ -5,15 +5,14 @@
 @import 'mixins';
 @import 'variables';
 
-.dark {
-  background: $--color-dark !important;
-  color: $--color-light !important;
-}
-
 .mediate {
   @include mediate
 }
 
 .search-bar + .table-page {
   margin-top: 20px;
+}
+
+.el-container > .el-aside {
+  height: 100%;
 }

@@ -10,7 +10,7 @@
         <el-divider
           v-if="item.split"
           direction="vertical"
-          :key="i"
+          :key="-i"
         ></el-divider>
       </template>
     </div>
@@ -67,7 +67,9 @@ export default {
       line-height: 42px;
       padding: 0 12px;
       margin: 0 10px;
-      background-color: $--bg-color-panel;
+      &:hover {
+        background-color: $--border-container;
+      }
     }
   }
 }

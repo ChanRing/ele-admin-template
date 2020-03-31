@@ -33,9 +33,8 @@ export default {
   .page-block {
     height: calc(100% - 48px - 40px);
     display: flex;
-    flex-direction: column;
     background: #fff;
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     margin: 20px;
   }
 }

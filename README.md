@@ -1,5 +1,8 @@
-# md-element-admin-template
+# 介绍
 
+> 本项目的定位是中台应用的基础模板，基于vue和element-ui实现。使用的@vue/cli4.x & vue 2.x技术栈
+
+## 启动
 ```bash
 # Project setup
 npm install
@@ -20,8 +23,30 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 
+## 功能
+```
+- 登录 / 注销
 
-### 目录结构说明
+- 多环境发布
+
+- 全局功能
+    - 动态侧边栏（支持多级路由嵌套）
+    - 本地 mock 数据
+    - 自适应收缩侧边栏
+
+- 表格
+    - 动态表格
+    - 拖拽表格
+    - 内联编辑
+
+- 组件
+    - 树形选择器
+    - 表格组件 
+
+- andmore...
+```
+
+## 目录结构
 ```
 |-- docs                       # 说明文档
 |── mock                       # 数据mock
@@ -51,13 +76,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ├── vue.config.js              # vue-cli 配置
 ├── postcss.config.js          # postcss 配置
 └── package.json               # package.json  
-```
-### 组件文档生成说明 [@vuese/cli](https://vuese.org/zh/cli)
-
-```bash
-npm install -g @vuese/cli
-
-vuese serve --open # 实时更新文档
-vuese gen #打包输出文档
-
 ```

@@ -1,7 +1,11 @@
 <template>
   <div class="filter-tree">
     <div class="filter-input">
-      <el-input :placeholder="placeholder" v-model="filterText"></el-input>
+      <el-input
+        :placeholder="placeholder"
+        v-model="filterText"
+        prefix-icon="el-icon-search"
+      ></el-input>
     </div>
     <el-tree
       ref="tree"
@@ -19,10 +23,6 @@
 export default {
   name: 'FilterTree',
   props: {
-    // // 树形数据请求接口
-    // api: Function,
-    // // 请求参数
-    // params: Object,
     // 输入框提示语
     placeholder: {
       type: String,
@@ -80,17 +80,13 @@ export default {
       const { props = {} } = this._subProps
       return data[props.label || 'label'].indexOf(value) !== -1
     },
-    // async getTreeData() {
-    //   if (this.api) {
-    //     this.treeData = (await this.api(this.params)).data
-    //   }
-    // },
+    // 自定义渲染树节点内容
     renderContent(h, { node, data }) {
       return (
         <div class="render-item">
           <i class={'tree-icon ' + data.icon}></i>
           <span class="el-tree-node__label">{node.label}</span>
-          <el-dropdown>
+          <el-dropdown trigger="click">
             <i class="el-icon-more"></i>
             <el-dropdown-menu slot="dropdown">
               {this.dropdownItems.map(item => {
@@ -126,7 +122,8 @@ export default {
 }
 
 .filter-tree {
-  margin-top: 10px;
+  padding-top: 20px;
+  background-color: transparent;
   ::v-deep .render-item {
     display: flex;
     flex-grow: 1;

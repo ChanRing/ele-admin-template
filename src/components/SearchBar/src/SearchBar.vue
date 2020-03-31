@@ -15,6 +15,7 @@
       <el-button
         v-for="(button, b) in _buttons"
         :key="b"
+        plain
         v-bind="button"
         @click="button.callback"
         >{{ button.name }}</el-button
@@ -106,8 +107,10 @@ export default {
 <style scoped lang="scss">
 .search-bar {
   display: flex;
-  width: 100%;
+  /*width: 100%;*/
   padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
@@ -115,7 +118,7 @@ export default {
 .el-link {
   padding-left: 10px;
   padding-right: 10px;
-  border-right: $--border-primary;
+  border-right: $--border-basic;
   &:last-child {
     border-right: none;
   }

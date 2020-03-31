@@ -65,22 +65,24 @@ export default {
 .global-header {
   display: flex;
   align-items: center;
+  background-color: $--color-dark;
+  color: $--color-light;
   .brand {
     height: 60px;
     line-height: 60px;
     font-size: 26px;
     margin-right: auto;
   }
-  .toggle-btn {
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 20px;
-    &:hover {
-      background: rgba(0, 0, 0, 0.2);
-    }
-  }
+  /*.toggle-btn {*/
+  /*  height: 60px;*/
+  /*  width: 60px;*/
+  /*  text-align: center;*/
+  /*  line-height: 60px;*/
+  /*  font-size: 20px;*/
+  /*  &:hover {*/
+  /*    background: rgba(0, 0, 0, 0.2);*/
+  /*  }*/
+  /*}*/
   .avatar-dropdown {
     margin-left: auto;
     &:hover {

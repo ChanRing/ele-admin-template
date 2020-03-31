@@ -61,6 +61,9 @@ export default {
   width: 300px;
   background: #fff;
 }
+.el-tabs__header {
+  margin-bottom: 0;
+}
 .more-style-sheet {
   margin-top: 10px;
   text-align: center;

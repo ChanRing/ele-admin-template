@@ -1,31 +1,32 @@
 <template>
-  <div class="query-table">
-    <search-bar
-      :buttons="buttons"
-      :form="form"
-      :form-items="formItems"
-    ></search-bar>
-    <!--    <div :style="{ height: height + 'px' }"></div>-->
-    <table-page
-      ref="table"
-      :columns="columns"
-      :api="api"
-      sortable
-      has-index
-    ></table-page>
-  </div>
+  <el-container>
+    <filter-tree></filter-tree>
+    <el-container direction="vertical">
+      <search-bar
+        :buttons="buttons"
+        :form="form"
+        :form-items="formItems"
+      ></search-bar>
+      <table-page
+        ref="table"
+        :columns="columns"
+        :api="api"
+        has-index
+      ></table-page>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
 import SearchBar from '@/components/SearchBar'
 import TablePage from '@/components/TablePage'
+import FilterTree from '@/components/FilterTree'
 import { getDataList1 } from '@/api'
 export default {
   name: 'QueryTable',
-  components: { SearchBar, TablePage },
+  components: { SearchBar, TablePage, FilterTree },
   data() {
     return {
-      height: 200,
       api: getDataList1,
       buttons: [
         {
@@ -103,11 +104,12 @@ export default {
   },
   mounted() {
     this.$refs.table.getTableData()
-    setInterval(() => {
-      this.height = Math.random() * 200
-    }, 3000)
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.filter-tree {
+  background-color: $--border-container;
+}
+</style>

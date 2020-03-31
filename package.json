@@ -11,7 +11,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "docs:dev": "vuepress dev docs"
+    "docs:dev": "vuepress dev"
   },
   "dependencies": {
     "axios": "^0.18.0",

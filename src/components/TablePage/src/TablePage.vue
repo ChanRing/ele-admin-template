@@ -156,22 +156,26 @@ export default {
 .table-page {
   position: relative;
   flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 10px;
   .el-table,
   .el-pagination {
     position: absolute;
-    width: 100%;
+    /*width: 100%;*/
   }
   // 表头样式重置
   ::v-deep .el-table__header-wrapper {
     tr,
     th {
-      background: $--bg-color-panel;
+      background-color: $--border-container;
     }
   }
 }
 
 .el-pagination {
   padding: 10px 0;
+  left: 0;
+  right: 0;
   text-align: center;
   bottom: 0;
 }

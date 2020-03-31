@@ -11,11 +11,12 @@ $--color-success: #67c23a;
 $--color-warning: #e6a23c;
 $--color-danger: #f56c6c;
 $--color-info: #909399;
-$--color-dark: #293645;
+$--color-dark: #313848;
 $--color-light: #fff;
 
-$--bg-color-basic: #f5f7fa; // 全局背景色
-$--bg-color-panel: #f0f2f5; // 块级背景色
+$--bg-color-basic: #F4F7FA; // 全局背景色
+$--border-container: #f0f2f5; // 小模块背景色
+$--bg-color-main: #fff; // 主展示区颜色
 
 $--color-border: #dcdfe6; // 边框颜色
 
@@ -24,7 +25,7 @@ $--font-size-main: 20px; // 主标题
 $--font-size-small: 12px; //
 
 /* 边框 */
-$--border-primary: 1px solid $--color-border; // 普通border
+$--border-basic: 1px solid $--color-border; // 普通border
 
 :export {
   theme: $--color-primary;

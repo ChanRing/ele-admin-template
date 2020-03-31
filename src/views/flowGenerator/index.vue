@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-03-30 11:55:46
  -->
 <template>
-  <el-container class="flow-genertor" direction="vertical">
+  <el-container class="flow-generator" direction="vertical">
     <!-- 头部容器 -->
     <global-header>
       <!-- 菜单栏目 -->
@@ -20,7 +20,7 @@ import GlobalHeader from '@/layout/GlobalHeader'
 // 菜单
 import NavMenu from '@/components/NavMenu'
 export default {
-  name: 'flowGenertor',
+  name: 'flowGenerator',
   data() {
     return {
       menus: [
