@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-03-30 19:47:51
  -->
 <template>
-  <el-container class="flow-genertor" direction="vertical">
+  <el-container class="flow-generator" direction="vertical">
     <!-- 头部容器 -->
     <global-header>
       <!-- 菜单栏目 -->
@@ -36,7 +36,7 @@ import FlowOperator from '@/views/flowGenerator/components/FlowOperator.vue'
 import FlowStepPanel from '@/views/flowGenerator/components/FlowStepPanel.vue'
 
 export default {
-  name: 'FlowGenertor',
+  name: 'FlowGenerator',
   data() {
     return {
       menus: [
@@ -64,7 +64,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.flow-genertor {
+.flow-generator {
   position: relative;
 }
 </style>
