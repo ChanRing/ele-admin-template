@@ -1,13 +1,9 @@
 <template>
   <div class="table-page">
-    <el-table ref="table" v-bind="_subProps" @selection-change="handleSelect">
+    <el-table ref="table" v-bind="_attrs" @selection-change="handleSelect">
       <el-table-column v-if="hasSelection" type="selection" />
       <el-table-column v-if="hasIndex" type="index" label="序号" />
-      <table-column
-        v-for="(column, c) in columns"
-        :column="column"
-        :key="c"
-      ></table-column>
+      <table-column v-for="(column, c) in columns" :column="column" :key="c"></table-column>
     </el-table>
     <el-pagination
       ref="pagination"
@@ -44,8 +40,8 @@ export default {
     hasIndex: Boolean,
     // 是否有选择列
     hasSelection: Boolean,
-    // 传递给 el-table 的属性集合，具体属性可参考 el-table
-    subProps: Object,
+    // // 传递给 el-table 的属性集合，具体属性可参考 el-table
+    // subProps: Object,
     // 表格列的定义，具体属性可参考[tableColumn](./TableColumn/src/README.md)
     columns: {
       type: Array,
@@ -66,12 +62,13 @@ export default {
   },
   computed: {
     // （私有）初始化表格，具体属性可以参考 el-table
-    _subProps() {
+    _attrs() {
+      console.log(this.$attrs)
       return {
         data: this.tableData,
         stripe: true,
         height: 'calc(100% - 48px)',
-        ...this.subProps
+        ...this.$attrs // el-table的属性拓展
       }
     },
     // （私有）分页组件的属性集合
@@ -162,13 +159,6 @@ export default {
   .el-table,
   .el-pagination {
     position: absolute;
-  }
-  // 表头样式重置
-  ::v-deep .el-table__header-wrapper {
-    tr,
-    th {
-      background-color: $--bg-color-container;
-    }
   }
 }
 

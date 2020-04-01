@@ -1,19 +1,16 @@
+<!--
+ @Desc 列表查询页面
+ -->
 <template>
   <el-container>
     <filter-tree></filter-tree>
     <el-container direction="vertical">
-      <search-bar
-        :buttons="buttons"
-        :form="form"
-        :form-items="formItems"
-      ></search-bar>
-      <table-page
-        ref="table"
-        :columns="columns"
-        :api="api"
-        has-index
-      ></table-page>
+      <search-bar v-bind="{ buttons, form, formItems }"></search-bar>
+      <table-page ref="table" v-bind="{ columns, api, hasIndex: true }"></table-page>
     </el-container>
+    <dialog-box v-bind="{ visible, size }">
+      <p>hello world</p>
+    </dialog-box>
   </el-container>
 </template>
 
@@ -21,18 +18,21 @@
 import SearchBar from '@/components/SearchBar'
 import TablePage from '@/components/TablePage'
 import FilterTree from '@/components/FilterTree'
+import DialogBox from '@/components/DialogBox'
 import { getDataList1 } from '@/api'
 export default {
   name: 'QueryTable',
-  components: { SearchBar, TablePage, FilterTree },
+  components: { SearchBar, TablePage, FilterTree, DialogBox },
   data() {
     return {
       api: getDataList1,
+      visible: false,
+      size: '',
       buttons: [
         {
           type: 'primary',
           name: '新增目录',
-          callback() {}
+          callback: this.createContent
         },
         {
           name: '修改目录',
@@ -100,6 +100,12 @@ export default {
           ]
         }
       ]
+    }
+  },
+  methods: {
+    createContent() {
+      this.size = ''
+      this.visible = true
     }
   },
   mounted() {

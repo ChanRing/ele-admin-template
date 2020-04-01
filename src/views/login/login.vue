@@ -7,15 +7,10 @@
           <h1 class="title">基于Saas化的协同办公平台</h1>
         </el-form-item>
         <el-form-item>
-          <el-input v-model="form.username" placeholder="请输入您的账号">
-          </el-input>
+          <el-input v-model="form.username" placeholder="请输入您的账号"> </el-input>
         </el-form-item>
         <el-form-item>
-          <el-input
-            v-model="form.password"
-            type="password"
-            placeholder="请输入您的密码"
-          >
+          <el-input v-model="form.password" type="password" placeholder="请输入您的密码">
           </el-input>
         </el-form-item>
         <el-form-item class="vertify">
@@ -23,10 +18,7 @@
           <verification-code></verification-code>
         </el-form-item>
         <el-form-item>
-          <el-button
-            type="primary"
-            class="login-btn"
-            @click="$router.push({ name: 'workbench' })"
+          <el-button type="primary" class="login-btn" @click="$router.push({ name: 'workbench' })"
             >登录</el-button
           >
           <el-link :underline="false">忘记密码？</el-link>

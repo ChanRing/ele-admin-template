@@ -5,11 +5,7 @@
         <i :class="menu.icon"></i>
         <span>{{ menu.title }}</span>
       </template>
-      <nav-menu-item
-        v-for="(item, i) in menu.children"
-        :key="i"
-        :menu="item"
-      ></nav-menu-item>
+      <nav-menu-item v-for="(item, i) in menu.children" :key="i" :menu="item"></nav-menu-item>
     </el-submenu>
     <el-menu-item v-else :index="menu.name" @click="handleClick(menu)">
       <i :class="menu.icon"></i>

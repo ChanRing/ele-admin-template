@@ -6,21 +6,12 @@
     <slot>
       <!-- 横向菜单区域 -->
       <slot name="nav-menu">
-        <nav-menu
-          v-if="isHorizontal"
-          :menus="menus"
-          :mode="direction"
-        ></nav-menu>
+        <nav-menu v-if="isHorizontal" :menus="menus" :mode="direction"></nav-menu>
       </slot>
       <!-- 用户信息区域 -->
-      <el-dropdown
-        @command="name => $router.push({ name })"
-        class="avatar-dropdown"
-      >
+      <el-dropdown @command="name => $router.push({ name })" class="avatar-dropdown">
         <span class="avatar-dropdown-link">
-          <el-avatar :size="32" style="margin-right: 14px">{{
-            avatar
-          }}</el-avatar>
+          <el-avatar :size="32" style="margin-right: 14px">{{ avatar }}</el-avatar>
           {{ username }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>

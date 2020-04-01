@@ -1,14 +1,11 @@
 /**
-* 系统样式出口
+* 样式文件
 * Created by ChangRon 2020/03/16
  */
 @import 'mixins';
 @import 'variables';
 
-.mediate {
-  @include mediate
-}
-
+// 影响项目布局
 .search-bar + .table-page {
   margin-top: 20px;
 }
@@ -16,3 +13,29 @@
 .el-container > .el-aside {
   height: 100%;
 }
+
+// 表头背景颜色重置
+.el-table__header-wrapper {
+  tr,th {
+    background-color: $--bg-color-container !important;
+  }
+}
+
+//// 处理表格头部错位问题
+//.el-table th.gutter{
+//  display: table-cell!important;
+//  width: 6px !important;
+//}
+//
+//// 表格滚动条样式优化
+//.el-table__body-wrapper {
+//  &::-webkit-scrollbar {
+//    background: $--bg-color-main;
+//    width: 6px;
+//  }
+//  &::-webkit-scrollbar-thumb {
+//    border-radius: 3px;
+//    background: $--bg-color-container;
+//    height: 100px;
+//  }
+//}

@@ -1,9 +1,5 @@
 <template>
-  <column-render
-    :row="scope.row"
-    :index="scope.$index"
-    :render="column.render"
-  ></column-render>
+  <column-render :row="scope.row" :index="scope.$index" :render="column.render"></column-render>
 </template>
 
 <script>

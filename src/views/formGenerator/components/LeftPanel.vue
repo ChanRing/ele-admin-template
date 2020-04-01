@@ -1,11 +1,7 @@
 <template>
   <el-tabs stretch>
     <el-tab-pane label="表单样式">
-      <filter-tree
-        :data="styles"
-        :dropdown-items="dropdown"
-        @command="handleCommand"
-      ></filter-tree>
+      <filter-tree :data="styles" :dropdown-items="dropdown" @command="handleCommand"></filter-tree>
       <div class="more-style-sheet">
         <el-button type="primary" plain>新增样式</el-button>
       </div>

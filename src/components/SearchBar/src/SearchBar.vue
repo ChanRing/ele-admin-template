@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
     <!-- 搜索表单部分 -->
-    <transition name="el-fade-in-linear">
+    <transition name="el-zoom-in-top">
       <search-form
         v-show="showFilters"
         :form="form"
@@ -22,9 +22,7 @@
       >
       <!-- 是否显示更多操作 -->
       <el-dropdown v-if="moreButtons" style="margin-left: 10px">
-        <el-button>
-          更多操作<i class="el-icon-arrow-down el-icon--right"></i>
-        </el-button>
+        <el-button> 更多操作<i class="el-icon-arrow-down el-icon--right"></i> </el-button>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item
             v-for="({ name, callback }, m) in moreButtons"
@@ -60,14 +58,18 @@ export default {
   name: 'SearchBar',
   components: { SearchForm },
   props: {
+    // 左侧按钮组
     buttons: {
       type: Array,
       default: () => []
     },
+    // 最大按钮数目
     maxButton: {
       type: Number,
       default: 3
     },
+    // 筛选条件表单对象
+    // [参数描述](./SearchForm/src/SearchForm.md)
     form: {
       type: Object,
       required: true

@@ -7,11 +7,7 @@
           <i v-if="item.icon" :class="['tool-item', item.icon]"></i>
           <small v-else class="tool-item">{{ item.label }}</small>
         </el-tooltip>
-        <el-divider
-          v-if="item.split"
-          direction="vertical"
-          :key="-i"
-        ></el-divider>
+        <el-divider v-if="item.split" direction="vertical" :key="-i"></el-divider>
       </template>
     </div>
 

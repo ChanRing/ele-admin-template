@@ -36,7 +36,8 @@ import {
   Divider,
   Tooltip,
   Col,
-  Row
+  Row,
+  Dialog
   // MessageBox
 } from 'element-ui'
 
@@ -73,7 +74,8 @@ const components = [
   Divider,
   Tooltip,
   Row,
-  Col
+  Col,
+  Dialog
 ]
 
 export default {

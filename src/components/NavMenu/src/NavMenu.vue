@@ -6,11 +6,7 @@
     :collapse="collapse"
     v-bind="menuStyle"
   >
-    <nav-menu-item
-      v-for="(menu, m) in menus"
-      :menu="menu"
-      :key="m"
-    ></nav-menu-item>
+    <nav-menu-item v-for="(menu, m) in menus" :menu="menu" :key="m"></nav-menu-item>
   </el-menu>
 </template>
 

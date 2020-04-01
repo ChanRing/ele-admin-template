@@ -2,10 +2,7 @@
   <div class="">
     <nav-menu :menus="menus" :collapse="collapse"></nav-menu>
     <div class="collapse-button">
-      <i
-        :class="`el-icon-s-${collapse ? 'unfold' : 'fold'}`"
-        @click="toggleCollapse"
-      ></i>
+      <i :class="`el-icon-s-${collapse ? 'unfold' : 'fold'}`" @click="toggleCollapse"></i>
     </div>
   </div>
 </template>

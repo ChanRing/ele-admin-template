@@ -1,6 +1,6 @@
 const path = require('path')
-
 const resolveMD = name => `${name}/src/${name}`
+
 module.exports = {
   title: '基于Sass化的协同办公平台', // 设置网站标题
   description: '项目说明',
@@ -9,11 +9,16 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },
+      { text: '项目布局', link: '/src/layout/'},
       { text: '组件文档', link: '/src/components/' },
       { text: '路由管理', link: '/src/router/' },
       { text: '状态管理', link: '/src/store/' }
     ],
     sidebar: {
+      '/src/layout/': [
+        ['Breadcrumbs', '面包屑'],
+        ['GlobalHeader', '顶部容器']
+      ],
       '/src/components/': [
         resolveMD('FilterTree'),
         resolveMD('NavMenu'),

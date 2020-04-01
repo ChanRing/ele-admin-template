@@ -28,7 +28,7 @@
       <!-- 插入表单项 -->
       <slot name="form-item"></slot>
 
-      <el-form-item v-if="_showButton">
+      <el-form-item>
         <el-button @click="handleSearch">查询</el-button>
         <el-button @click="handleReset">重置</el-button>
       </el-form-item>
@@ -56,25 +56,13 @@ export default {
     form: {
       type: Object,
       required: true
-    },
-    /*
-     * 是否显示按钮
-     * 默认会根据formItems的长度来判断
-     * 如果通过插槽的形式传入表单项则要设置为true
-     * */
-    showButton: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    _showButton() {
-      return this.formItems.length > 0 || this.showButton
     }
   },
   methods: {
     handleSearch() {
       // 搜索按钮点击时触发
+      // @arg 返回的form表单内容
+      // 如果是使用插槽的方式的话，form由外部获取
       this.$emit('search', this.form)
     },
     handleReset() {

@@ -14,7 +14,7 @@ $--color-info: #909399;
 $--color-dark: #313848;
 $--color-light: #fff;
 
-$--bg-color-basic: #F4F7FA; // 全局背景色
+$--bg-color-basic: #f4f7fa; // 全局背景色
 $--bg-color-container: #f0f2f5; // 小模块背景色
 $--bg-color-main: #fff; // 主展示区颜色
 
@@ -31,5 +31,4 @@ $--border-basic: 1px solid $--color-border; // 普通border
   theme: $--color-primary;
   dark: $--color-dark;
   light: $--color-light;
-
 }

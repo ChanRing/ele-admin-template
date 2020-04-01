@@ -76,10 +76,7 @@ export default {
       let ctx = canvas.getContext('2d')
       ctx.textBaseline = 'bottom'
       // 绘制背景
-      ctx.fillStyle = this.randomColor(
-        this.backgroundColorMin,
-        this.backgroundColorMax
-      )
+      ctx.fillStyle = this.randomColor(this.backgroundColorMin, this.backgroundColorMax)
       ctx.fillRect(0, 0, this.contentWidth, this.contentHeight)
       // 绘制文字
       for (let i = 0; i < this.identifyCode.length; i++) {
@@ -90,8 +87,7 @@ export default {
     },
     drawText(ctx, txt, i) {
       ctx.fillStyle = this.randomColor(this.colorMin, this.colorMax)
-      ctx.font =
-        this.randomNum(this.fontSizeMin, this.fontSizeMax) + 'px SimHei'
+      ctx.font = this.randomNum(this.fontSizeMin, this.fontSizeMax) + 'px SimHei'
       let x = (i + 1) * (this.contentWidth / (this.identifyCode.length + 1))
       let y = this.randomNum(this.fontSizeMax, this.contentHeight - 5)
       var deg = this.randomNum(-45, 45)
@@ -108,14 +104,8 @@ export default {
       for (let i = 0; i < 8; i++) {
         ctx.strokeStyle = this.randomColor(this.lineColorMin, this.lineColorMax)
         ctx.beginPath()
-        ctx.moveTo(
-          this.randomNum(0, this.contentWidth),
-          this.randomNum(0, this.contentHeight)
-        )
-        ctx.lineTo(
-          this.randomNum(0, this.contentWidth),
-          this.randomNum(0, this.contentHeight)
-        )
+        ctx.moveTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
+        ctx.lineTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
         ctx.stroke()
       }
     },

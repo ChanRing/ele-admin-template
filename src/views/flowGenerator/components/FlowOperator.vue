@@ -14,9 +14,7 @@
     <el-divider direction="vertical"></el-divider>
     <el-button type="text" icon="el-icon-delete">删除</el-button>
     <el-divider direction="vertical"></el-divider>
-    <el-button type="text" icon="el-icon-document-checked"
-      >完整新检查</el-button
-    >
+    <el-button type="text" icon="el-icon-document-checked">完整新检查</el-button>
   </div>
 </template>
 <script>
