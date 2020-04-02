@@ -1,6 +1,7 @@
 <template>
-  <div class="search-form">
-    <el-form inline :label-width="labelWidth">
+  <el-form class="search-form" inline :label-width="labelWidth">
+    <!-- 插入表单项 -->
+    <slot name="form-item">
       <el-form-item v-for="(item, i) in formItems" :key="i" :label="item.label">
         <!-- 下拉框 -->
         <el-select v-if="item.type === 'select'" v-model="form[item.prop]">
@@ -22,18 +23,14 @@
         ></el-date-picker>
 
         <!-- 输入框 -->
-        <el-input v-else :type="item.type" v-model="form[item.prop]"></el-input>
+        <el-input v-else v-bind="item" v-model="form[item.prop]"></el-input>
       </el-form-item>
-
-      <!-- 插入表单项 -->
-      <slot name="form-item"></slot>
-
-      <el-form-item>
-        <el-button @click="handleSearch">查询</el-button>
-        <el-button @click="handleReset">重置</el-button>
-      </el-form-item>
-    </el-form>
-  </div>
+    </slot>
+    <el-form-item>
+      <el-button @click="handleSearch">查询</el-button>
+      <el-button @click="handleReset">重置</el-button>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script>
@@ -95,26 +92,21 @@ export default {
 <style scoped lang="scss">
 .search-form {
   position: relative;
-  width: 100%;
-  padding: 10px 0;
-  border: $--border-basic;
-  background-color: $--bg-color-container;
-  border-radius: 4px;
+  padding-top: 10px;
   margin-bottom: 10px;
-  &::after {
+  background-color: $--bg-color-container;
+  &:after {
     content: '';
     position: absolute;
-    bottom: -6px;
-    right: 40px;
     width: 10px;
     height: 10px;
+    right: 40px;
+    bottom: -6px;
     transform: rotate(45deg);
     background-color: $--bg-color-container;
-    border-right: $--border-basic;
-    border-bottom: $--border-basic;
   }
   .el-form-item {
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 }
 </style>

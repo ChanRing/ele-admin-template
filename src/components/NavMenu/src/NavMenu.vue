@@ -6,7 +6,9 @@
     :collapse="collapse"
     v-bind="menuStyle"
   >
-    <nav-menu-item v-for="(menu, m) in menus" :menu="menu" :key="m"></nav-menu-item>
+    <template v-for="(item, i) in menus">
+      <nav-menu-item :menu="item" :key="i"></nav-menu-item>
+    </template>
   </el-menu>
 </template>
 
@@ -42,10 +44,11 @@ export default {
       return this.$route.name
     },
     menuStyle() {
+      const { light, dark } = variables
       const isDarkMenu = this.theme === 'dark' && this.mode === 'horizontal'
-      const textColor = isDarkMenu ? variables.light : ''
+      const textColor = isDarkMenu ? light : ''
       const activeTextColor = isDarkMenu ? '#ffd04b' : ''
-      const backgroundColor = isDarkMenu ? variables.dark : ''
+      const backgroundColor = isDarkMenu ? dark : ''
       return { textColor, activeTextColor, backgroundColor }
     }
   }

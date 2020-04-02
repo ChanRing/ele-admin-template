@@ -3,7 +3,7 @@
     <!-- 搜索表单部分 -->
     <transition name="el-zoom-in-top">
       <search-form
-        v-show="showFilters"
+        v-show="visible"
         :form="form"
         :form-items="formItems"
         @search="handleSearch"
@@ -11,36 +11,38 @@
       ></search-form>
     </transition>
 
-    <div class="button-group">
-      <el-button
-        v-for="(button, b) in _buttons"
-        :key="b"
-        plain
-        v-bind="button"
-        @click="button.callback"
-        >{{ button.name }}</el-button
-      >
-      <!-- 是否显示更多操作 -->
-      <el-dropdown v-if="moreButtons" style="margin-left: 10px">
-        <el-button> 更多操作<i class="el-icon-arrow-down el-icon--right"></i> </el-button>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item
-            v-for="({ name, callback }, m) in moreButtons"
-            @click="callback"
-            :key="m"
-          >
-            {{ name }}</el-dropdown-item
-          >
-        </el-dropdown-menu>
-      </el-dropdown>
-    </div>
+    <div class="search-main">
+      <div class="button-group">
+        <el-button
+          v-for="(button, b) in _buttons"
+          :key="b"
+          plain
+          v-bind="button"
+          @click="button.callback"
+          >{{ button.name }}</el-button
+        >
+        <!-- 是否显示更多操作 -->
+        <el-dropdown v-if="moreButtons" style="margin-left: 10px">
+          <el-button> 更多操作<i class="el-icon-arrow-down el-icon--right"></i> </el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item
+              v-for="({ name, callback }, m) in moreButtons"
+              @click="callback"
+              :key="m"
+            >
+              {{ name }}</el-dropdown-item
+            >
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
 
-    <div class="links">
-      <!-- 右侧links插槽 -->
-      <slot name="links"></slot>
-      <el-link @click="showFilters = !showFilters" :underline="false">
-        <span>筛选条件 <i class="el-icon-paperclip"></i></span>
-      </el-link>
+      <div class="links">
+        <!-- 右侧links插槽 -->
+        <slot name="links"></slot>
+        <el-link @click="visible = !visible" :underline="false">
+          <span>筛选条件 <i class="el-icon-paperclip"></i></span>
+        </el-link>
+      </div>
     </div>
   </div>
 </template>
@@ -78,7 +80,7 @@ export default {
   },
   data() {
     return {
-      showFilters: false // 是否显示筛选条件
+      visible: false // 是否显示筛选条件
     }
   },
   computed: {
@@ -108,14 +110,12 @@ export default {
 
 <style scoped lang="scss">
 .search-bar {
-  display: flex;
-  /*width: 100%;*/
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
+  padding: 10px;
+  .search-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .el-link {
   padding-left: 10px;

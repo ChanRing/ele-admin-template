@@ -4,7 +4,7 @@
       <div class="login-brand"></div>
       <el-form :model="form">
         <el-form-item>
-          <h1 class="title">基于Saas化的协同办公平台</h1>
+          <h1 class="title">{{ brandName }}</h1>
         </el-form-item>
         <el-form-item>
           <el-input v-model="form.username" placeholder="请输入您的账号"> </el-input>
@@ -30,11 +30,19 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+
+const { mapState } = createNamespacedHelpers('common')
 import waveWrapper from './components/WaveWrapper'
 import VerificationCode from './components/VertifyCode'
 export default {
   name: 'Login',
   components: { waveWrapper, VerificationCode },
+  computed: {
+    ...mapState({
+      brandName: 'brandName'
+    })
+  },
   data() {
     return {
       form: {}
@@ -73,6 +81,7 @@ export default {
     width: 300px;
     h1.title {
       font-size: $--font-size-main;
+      font-weight: bold;
       text-align: center;
     }
     &-item:last-child {

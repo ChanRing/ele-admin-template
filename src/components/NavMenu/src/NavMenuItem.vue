@@ -1,17 +1,15 @@
 <template>
-  <div v-if="!menu.hidden">
-    <el-submenu v-if="menu.children" :index="menu.name">
-      <template slot="title">
-        <i :class="menu.icon"></i>
-        <span>{{ menu.title }}</span>
-      </template>
-      <nav-menu-item v-for="(item, i) in menu.children" :key="i" :menu="item"></nav-menu-item>
-    </el-submenu>
-    <el-menu-item v-else :index="menu.name" @click="handleClick(menu)">
+  <el-submenu v-if="menu.children" :index="menu.name">
+    <template slot="title">
       <i :class="menu.icon"></i>
-      <span slot="title">{{ menu.title }}</span>
-    </el-menu-item>
-  </div>
+      <span>{{ menu.title }}</span>
+    </template>
+    <nav-menu-item v-for="(item, i) in menu.children" :key="i" :menu="item"></nav-menu-item>
+  </el-submenu>
+  <el-menu-item v-else :index="menu.name" @click="handleClick(menu)">
+    <i :class="menu.icon"></i>
+    <span slot="title">{{ menu.title }}</span>
+  </el-menu-item>
 </template>
 
 <script>
@@ -36,5 +34,3 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>
