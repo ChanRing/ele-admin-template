@@ -63,7 +63,6 @@ export default {
   computed: {
     // （私有）初始化表格，具体属性可以参考 el-table
     _attrs() {
-      console.log(this.$attrs)
       return {
         data: this.tableData,
         stripe: true,

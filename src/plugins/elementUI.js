@@ -37,7 +37,8 @@ import {
   Tooltip,
   Col,
   Row,
-  Dialog
+  Dialog,
+  Rate
   // MessageBox
 } from 'element-ui'
 
@@ -75,7 +76,8 @@ const components = [
   Tooltip,
   Row,
   Col,
-  Dialog
+  Dialog,
+  Rate
 ]
 
 export default {

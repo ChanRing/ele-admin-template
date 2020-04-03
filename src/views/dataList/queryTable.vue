@@ -3,11 +3,16 @@
  -->
 <template>
   <el-container>
+    <!-- 单位目录树 -->
     <filter-tree></filter-tree>
+
+    <!-- 主体内容 -->
     <el-container direction="vertical">
       <search-bar v-bind="{ buttons, form, formItems }"></search-bar>
       <table-page ref="table" v-bind="{ columns, api, hasIndex: true }"></table-page>
     </el-container>
+
+    <!-- 弹窗内容 -->
     <dialog-box v-bind="{ visible, size }">
       <p>hello world</p>
     </dialog-box>

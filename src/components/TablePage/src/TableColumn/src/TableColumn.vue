@@ -7,24 +7,29 @@
         :key="ch"
       ></table-column>
     </template>
-    <template v-slot:default="slotProps" v-if="isSlotColumn(_column)">
+    <!--   v-slot:default="slotProps" -->
+    <template v-if="isSlotColumn(_column)" v-slot="scope">
       <template v-if="_column.buttons">
-        <button-slot :scope="slotProps" :column="_column"></button-slot>
+        <button-group :scope="scope" :column="_column"></button-group>
       </template>
       <template v-if="_column.render">
-        <j-s-x-slot :scope="slotProps" :column="_column"></j-s-x-slot>
+        <column-render
+          :row="scope.row"
+          :index="scope.$index"
+          :render="_column.render"
+        ></column-render>
       </template>
     </template>
   </el-table-column>
 </template>
 
 <script>
-import ButtonSlot from './ButtonSlot'
-import JSXSlot from './JSXSlot'
+import ButtonGroup from './ButtonGroup'
+import ColumnRender from './ColumnRender'
 
 export default {
   name: 'TableColumn',
-  components: { ButtonSlot, JSXSlot },
+  components: { ButtonGroup, ColumnRender: ColumnRender },
   props: {
     /**
      * 1. 支持el-table-column的属性

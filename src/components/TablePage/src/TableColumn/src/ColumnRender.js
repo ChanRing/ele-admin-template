@@ -1,9 +1,12 @@
-const ColumnRender = {
+export default {
   name: 'ColumnRender',
   functional: true,
   props: {
+    // 当前表格行
     row: Object,
+    // 当前行索引
     index: Number,
+    // jsx 渲染函数
     render: Function
   },
   /**
@@ -16,5 +19,3 @@ const ColumnRender = {
     return render(row, index)
   }
 }
-
-export default ColumnRender
