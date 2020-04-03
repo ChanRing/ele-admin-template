@@ -11,7 +11,6 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --dest lib src/components/index.js",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs"
   },
@@ -45,7 +44,6 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.1.2",
-    "loadash": "^1.0.0",
     "lodash": "latest",
     "node-sass": "^4.9.2",
     "prettier": "^1.19.1",

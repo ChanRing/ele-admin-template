@@ -51,4 +51,10 @@
 
 <!-- @vuese:TablePage:mixIns:end -->
 
+<test></test>
+
+```vue
+<test></test>
+```    
+
 

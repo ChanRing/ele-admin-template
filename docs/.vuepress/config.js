@@ -26,9 +26,18 @@ module.exports = {
       sort: sortFn,
     }
   },
+  configureWebpack: {
+    module: {
+      rules: [
+        { test: /[.]js$/, exclude: /node_modules/, use: ['babel-loader'] },
+      ]
+    }
+  },
   chainWebpack(config) {
     // 设置与vue.config.js公共的别名
-    config.resolve.alias.set('@', resolve('../../src'))
+    config.resolve.alias.set('@', resolve('../../src')).end()
+    // config.module.rule('js').use('babel-loader').query()
+
   },
   scss: {
     // 参考vue.config.js实现
