@@ -43,8 +43,7 @@ export default {
     }
   },
   methods: {
-    handleCommand(command, data) {
-      console.log(command, data)
+    handleCommand(command) {
       this.$message.success(command)
     }
   }

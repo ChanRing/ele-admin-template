@@ -23,57 +23,28 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 
-## 功能
+## 组件文档编写
+
+之前，当你创建一个 Vue 组件时，你需要手动的为你的组件编写文档，这包括：
+
+* `props`：你的组件接收哪些 props，以及他们的类型、默认值、是否必须等等
+* `events`: 你的组件会提供哪些事件，以及事件回调函数的参数
+* `slots`: 你的组件提供哪些 slots，他们的含义是什么
+* `methods`: 有时候你的组件也会提供一些允许外部通过组件实例调用的方法
+
+此项目组件文档生成工具为[vuese](https://vuese.org/zh/cli)
+配置文件: [vuese.config.js](./vuese.config.js)
+
+## 项目文档编写
+
+1.目录结构
+```bash
+docs                # 文档目录
+|-- .vuepress       # 文档配置文件
+|-- components      # 组件文档
+|-- guide           # 项目开发指南
+|-- README.md       # 文档首页
 ```
-- 登录 / 注销
 
-- 多环境发布
-
-- 全局功能
-    - 动态侧边栏（支持多级路由嵌套）
-    - 本地 mock 数据
-    - 自适应收缩侧边栏
-
-- 表格
-    - 动态表格
-    - 拖拽表格
-    - 内联编辑
-
-- 组件
-    - 树形选择器
-    - 表格组件 
-
-- andmore...
-```
-
-## 目录结构
-```
-|-- docs                       # 说明文档
-|── mock                       # 数据mock
-|   |── data                   # mock的datajson
-├── public                     # 静态资源
-│   │── favicon.ico            # favicon图标
-│   └── index.html             # html模板
-├── src                        # 源代码
-│   ├── api                    # 所有请求
-│   ├── assets                 # 主题 字体等静态资源
-│   ├── components             # 全局公用组件
-│   ├── directive              # 全局指令
-│   ├── filters                # 全局 filter
-│   ├── layout                 # 全局 layout
-│   ├── router                 # 路由
-│   ├── store                  # 全局 store管理
-│   ├── styles                 # 全局样式
-│   ├── utils                  # 全局公用方法
-│   ├── views                  # views 所有页面
-│   ├── App.vue                # 入口页面
-│   ├── main.js                # 入口文件 加载组件 初始化等
-├── tests                      # 测试
-├── .env.xxx                   # 环境变量配置
-├── .eslintrc.js               # eslint 配置项
-├── babel.config.js            # babel-loader 配置
-├── jest.config.js             # jest 单元测试配置
-├── vue.config.js              # vue-cli 配置
-├── postcss.config.js          # postcss 配置
-└── package.json               # package.json  
-```
+> 说明
+组件文档会通过`vuese gen`指令自动生成到`docs/components`文件夹中

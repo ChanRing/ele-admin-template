@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import TableColumn from './TableColumn'
+import TableColumn from './TableColumn/TableColumn'
 import sortable from './mixins/sortable'
 
 /**
