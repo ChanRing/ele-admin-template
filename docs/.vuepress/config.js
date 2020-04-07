@@ -9,7 +9,7 @@ const sortFn = key => (a, b) => {
 
 module.exports = {
   title: 'Sass化协同办公系统文档',
-  description: '',
+  description: '协同办公系统前端开发文档',
   base: '/',
   dest: 'vuepress',
   serviceWorker: true,
