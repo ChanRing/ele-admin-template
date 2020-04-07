@@ -3,13 +3,11 @@
 </template>
 
 <script>
-  import MyButton from '@/components/MyButton/MyButton'
-  export default {
-    name: 'test',
-    components: { MyButton }
-  }
+import MyButton from '@/components/MyButton/MyButton'
+export default {
+  name: 'test',
+  components: { MyButton }
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

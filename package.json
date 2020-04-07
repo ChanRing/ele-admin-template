@@ -54,14 +54,5 @@
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.4.0",
     "vuepress-plugin-auto-sidebar": "^1.4.1"
-  },
-  "gitHooks": {
-    "pre-commit": ""
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
   }
 }

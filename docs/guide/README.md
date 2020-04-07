@@ -1,8 +1,9 @@
 # 介绍
 
-> 本项目的定位是中台应用的基础模板，基于vue和element-ui实现。使用的@vue/cli4.x & vue 2.x技术栈
+> 本项目的定位是中台应用的基础模板，基于 vue 和 element-ui 实现。使用的@vue/cli4.x & vue 2.x 技术栈
 
 ## 启动
+
 ```bash
 # Project setup
 npm install
@@ -24,6 +25,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 
 ## 功能
+
 ```
 - 登录 / 注销
 
@@ -47,6 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 
 ## 目录结构
+
 ```
 |-- docs                       # 说明文档
 |── mock                       # 数据mock
