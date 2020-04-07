@@ -16,10 +16,7 @@ module.exports = {
   // 主题配置
   themeConfig: {
     // 顶部导航栏配置
-    nav,
-    sidebar: {
-      // '/components/': ['', 'TablePage', 'SearchBar', 'NavMenu', 'FilterTree', 'DialogBox']
-    }
+    nav
   },
   plugins: {
     'vuepress-plugin-auto-sidebar': {
@@ -42,8 +39,7 @@ module.exports = {
   scss: {
     // 参考vue.config.js实现
     // 传入共享的全局变量
-    prependData: `
-        @import "~@/styles/variables.scss";
+    prependData: ` @import "~@/styles/variables.scss";
         @import "~@/styles/mixins.scss";
         `
   }

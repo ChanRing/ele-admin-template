@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: 快速上手 →
-actionLink: /guide
+actionLink: /guide/
 features:
 - title: 开箱即用
   details: 无需繁杂的配置，即可进行文档编写。
