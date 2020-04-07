@@ -36,8 +36,9 @@ module.exports = {
   scss: {
     // 参考vue.config.js实现
     // 传入共享的全局变量
-    prependData: ` @import "~@/styles/variables.scss";
+    prependData: `
+        @import "~@/styles/variables.scss";
         @import "~@/styles/mixins.scss";
-        `
+    `
   }
 }
