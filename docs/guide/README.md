@@ -1,6 +1,6 @@
 # 介绍
 
-> 本项目的定位是中台应用的基础模板，基于 vue 和 element-ui 实现。使用的@vue/cli4.x & vue 2.x 技术栈
+> 本项目的定位是中台应用的基础模板，基于 vue 和 element-ui 实现。使用的@vue/cli4.x & vue 2.6.x 技术栈
 
 ## 启动
 
