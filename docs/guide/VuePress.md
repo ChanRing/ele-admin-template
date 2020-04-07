@@ -1,4 +1,4 @@
-# Vuepress
+# VuePress
 
 ## 目录结构
 
