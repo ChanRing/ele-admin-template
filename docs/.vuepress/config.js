@@ -11,7 +11,7 @@ module.exports = {
   title: 'Sass化协同办公系统文档',
   description: '协同办公系统前端开发文档',
   base: '/',
-  dest: 'vuepress',
+  dest: './vuepress',
   serviceWorker: true,
   // 主题配置
   themeConfig: {
