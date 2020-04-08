@@ -42,7 +42,7 @@ export default {
     hasSelection: Boolean,
     // // 传递给 el-table 的属性集合，具体属性可参考 el-table
     // subProps: Object,
-    // 表格列的定义，具体属性可参考[tableColumn](./TableColumn/src/README.md)
+    // 表格列的定义，具体属性可参考[tableColumn](./TableColumn)
     columns: {
       type: Array,
       required: true

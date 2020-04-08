@@ -14,9 +14,9 @@ export default [
     children: []
   },
   {
-    path: '/generator',
-    name: 'generator',
-    component: () => import('@/views/formGenerator/index'),
+    path: '/formGenerator',
+    name: 'formGenerator',
+    component: () => import('@/views/formGenerator'),
     meta: {
       title: '表单设计器',
       showMenu: false

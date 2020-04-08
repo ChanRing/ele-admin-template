@@ -4,7 +4,6 @@
     {
       "title": "工作台",
       "icon": "el-icon-monitor",
-      "component": "@/views/Workbench",
       "name": "workbench"
     },
     {
@@ -14,13 +13,11 @@
       "children": [
         {
           "title": "查询表格",
-          "component": "@/views/DataList/QueryTable",
           "name": "queryTable",
           "icon": "el-icon-date"
         },
         {
           "title": "标准表格",
-          "component": "@/views/DataList/StandardTable",
           "name": "standardTable",
           "icon": "el-icon-date"
         }
@@ -34,7 +31,6 @@
         {
           "title": "表单设计器",
           "name": "formGenerator",
-          "component": "@/views/formGenerator",
           "target": "_blank"
         }
       ]

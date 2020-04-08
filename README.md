@@ -35,15 +35,29 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 此项目组件文档生成工具为[vuese](https://vuese.org/zh/cli)
 配置文件: [vuese.config.js](./vuese.config.js)
 
+```bash
+# 自动生成组件文档
+vuese gen
+```
+
 ## 项目文档编写
 
-1.目录结构
+目录结构
 ```bash
 docs                # 文档目录
 |-- .vuepress       # 文档配置文件
 |-- components      # 组件文档
 |-- guide           # 项目开发指南
 |-- README.md       # 文档首页
+```
+
+开始编写文档
+```bash
+# 开发项目文档
+npm run docs:dev
+
+# 打包项目文档
+npm run docs:build
 ```
 
 > 说明
