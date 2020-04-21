@@ -37,8 +37,6 @@ module.exports = {
 
 1. 安装 eslint 插件
 
-![dc0c28f6058ab5ea746f93313a6ddb0b.png](en-resource://database/600:0)
-
 2. 安装并且配置完 ESLint 之后，我们继续回到 VSCode 中进行拓展设置，依次点击`File` > `Preference` > `Setting` 打开 VSCode 配置文件，添加如下配置
 
 ```json
