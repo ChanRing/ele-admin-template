@@ -1,6 +1,6 @@
 # 介绍
 
-> 本项目的定位是中台应用的基础模板，基于vue和element-ui实现。使用的@vue/cli4.x & vue 2.x技术栈
+> 本项目的定位是中台应用的基础模板，基于vue和element-ui实现。{{ @vue/cli4.3.x & vue 2.6.x }}
 
 ## 启动
 ```bash
