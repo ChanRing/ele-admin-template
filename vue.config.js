@@ -1,4 +1,5 @@
 const resolve = dir => require('path').join(__dirname, dir)
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   productionSourceMap: false,
@@ -22,15 +23,24 @@ module.exports = {
     },
     before: require('./mock/mockServer.js')
   },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@': resolve('src'),
-        packages: resolve('packages')
-      }
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins.push(
+        new CompressionPlugin({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: /\.js$|\.css$|\.html$/,
+          threshold: 10240,
+          minRatio: 0.8,
+          deleteOriginalAssets: true
+        })
+      )
     }
   },
   chainWebpack(config) {
+    config.resolve.alias.set('@', resolve('src')).end()
+
+    // 优化请求数量
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
 

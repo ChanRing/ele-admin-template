@@ -5,10 +5,6 @@ module.exports = [
     link: '/guide/'
   },
   {
-    text: '表单设计器',
-    link: '/formGen/'
-  },
-  {
     text: '组件文档',
     link: '/components/'
   },
@@ -22,6 +18,6 @@ module.exports = [
   },
   {
     text: 'github',
-    link: 'https://github.com/ChanRing/md-element-admin-template'
+    link: 'https://github.com/ChanRing/md-admin-template'
   }
 ]

@@ -1,7 +1,7 @@
 # VuePress
 
 ::: tip 注意 
-在你使用VuePress前，请前往[VuePress中文网](https://www.vuepress.cn/guide/)了解相关知识。
+在你使用VuePress编写文档时，可以前往[VuePress中文网](https://www.vuepress.cn/guide/)了解相关知识。
 :::
 
 ## 目录结构

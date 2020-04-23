@@ -94,9 +94,7 @@ export default {
           buttons: [
             {
               label: '修改',
-              callback() {
-                // console.log(JSON.stringify(rowData))
-              }
+              callback() {}
             },
             {
               label: '删除',
