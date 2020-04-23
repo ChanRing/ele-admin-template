@@ -11,6 +11,15 @@ module.exports = {
     }
   },
   devServer: {
+    proxy: {
+      [process.env.VUE_APP_BASE_API]: {
+        target: `/api`,
+        changeOrigin: true,
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_BASE_API]: ''
+        }
+      }
+    },
     before: require('./mock/mockServer.js')
   },
   configureWebpack: {
@@ -35,7 +44,6 @@ module.exports = {
         return options
       })
       .end()
-    config.optimization.runtimeChunk('single')
   },
   css: {
     loaderOptions: {

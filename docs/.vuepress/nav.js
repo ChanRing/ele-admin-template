@@ -15,11 +15,10 @@ module.exports = [
   {
     text: '帮助',
     items: [
-      { text: 'FormCreate', link: 'http://www.form-create.com/', target: '_blank' },
-      { text: 'VuePress', link: 'https://www.vuepress.cn', target: '_blank'},
-      { text: 'ElementUI', link: 'https://element.eleme.cn/#/zh-CN', target: '_blank'},
-      { text: 'VueDraggable', link: '', target: '_blank'}
-    ]
+      { text: '手摸手教程', link: 'https://panjiachen.github.io/vue-element-admin-site'},
+      { text: 'VuePress', link: 'https://www.vuepress.cn'},
+      { text: 'ElementUI', link: 'https://element.eleme.cn/#/zh-CN'},
+    ].map(item => ({...item, target: '_blank'}))
   },
   {
     text: 'github',

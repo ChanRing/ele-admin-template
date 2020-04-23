@@ -1,5 +1,6 @@
 const resolve = dir => require('path').join(__dirname, dir)
 const nav = require('./nav')
+const packages = require('../../package')
 
 const sortFn = key => (a, b) => {
   // README排在第一位 其他按照首字母顺序排列
@@ -8,8 +9,8 @@ const sortFn = key => (a, b) => {
 }
 
 module.exports = {
-  title: 'Sass化协同办公系统文档',
-  description: '协同办公系统前端开发文档',
+  title: `${packages.name}`,
+  description: `${packages.description}${packages.version}`,
   base: '/',
   dest: './vuepress',
   serviceWorker: true,
@@ -23,11 +24,6 @@ module.exports = {
       sort: sortFn
     }
   },
-  // configureWebpack: {
-  //   module: {
-  //     rules: [{ test: /[.]js$/, exclude: /node_modules/, use: ['babel-loader'] }]
-  //   }
-  // },
   chainWebpack(config) {
     // 设置与vue.config.js公共的别名
     config.resolve.alias.set('@', resolve('../../src')).end()

@@ -1,5 +1,6 @@
 {
   "name": "md-element-admin-template",
+  "description": "a admin-template base on elementUI.",
   "version": "0.1.0",
   "private": false,
   "author": {

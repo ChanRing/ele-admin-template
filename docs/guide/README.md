@@ -1,10 +1,15 @@
 # 介绍
 
-> 本项目的定位是中台应用的基础模板，基于 vue 和 element-ui 实现。使用的@vue/cli4.x & vue 2.6.x 技术栈
+> 本项目的定位是中台应用的基础模板，它基于vue和element-ui实现，只包含最基础的功能和组件。
+
+目前版本为`v1.0.0`基于`vue-cli4.x`进行构建
 
 ## 启动
 
 ```bash
+# 克隆项目
+git clone https://github.com/ChanRing/md-admin-template.git
+
 # Project setup
 npm install
 
