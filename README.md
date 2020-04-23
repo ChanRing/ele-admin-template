@@ -1,6 +1,8 @@
 # 介绍
 
-> 本项目的定位是中台应用的基础模板，基于vue和element-ui实现。{{ @vue/cli4.3.x & vue 2.6.x }}
+> 本项目的定位是中台应用的基础模板，它基于vue和element-ui实现，只包含最基础的功能和组件。
+
+目前版本为`v1.0.0`基于`vue-cli4.x`进行构建
 
 ## 启动
 ```bash
@@ -32,7 +34,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * `slots`: 你的组件提供哪些 slots，他们的含义是什么
 * `methods`: 有时候你的组件也会提供一些允许外部通过组件实例调用的方法
 
-此项目组件文档生成工具为[vuese](https://vuese.org/zh/cli)
+组件文档生成工具：[vuese](https://vuese.org/zh/cli)
 配置文件: [vuese.config.js](./vuese.config.js)
 
 ```bash
