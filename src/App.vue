@@ -15,6 +15,7 @@ export default {
   display: flex;
   user-select: none;
   color: #333;
+  font-size: $--font-size-text;
   background-color: $--bg-color-basic;
 }
 </style>

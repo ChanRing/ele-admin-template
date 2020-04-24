@@ -38,7 +38,12 @@ import {
   Col,
   Row,
   Dialog,
-  Rate
+  Rate,
+  Alert,
+  Card,
+  Checkbox,
+  Progress,
+  Calendar
   // MessageBox
 } from 'element-ui'
 
@@ -77,7 +82,12 @@ const components = [
   Row,
   Col,
   Dialog,
-  Rate
+  Rate,
+  Alert,
+  Card,
+  Checkbox,
+  Progress,
+  Calendar
 ]
 
 export default {

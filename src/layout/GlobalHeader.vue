@@ -17,7 +17,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="personal">个人资料</el-dropdown-item>
-          <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+          <el-dropdown-item command="login">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </slot>

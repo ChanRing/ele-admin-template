@@ -13,7 +13,7 @@ export default [
       {
         path: 'workbench',
         name: 'workbench',
-        component: () => import('@/views/workbench'),
+        component: () => import(/* webpackChunkName: "common" */ '@/views/workbench'),
         meta: {
           title: '工作台'
         }

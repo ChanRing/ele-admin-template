@@ -13,8 +13,8 @@
       :data="treeData"
       v-bind="_subProps"
       :filter-node-method="filterNodeMethod"
-      :render-content="renderContent"
     ></el-tree>
+    <!--        :render-content="renderContent"  -->
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
       type: String,
       default: '输入关键字过滤'
     },
-    // 树的数据
+    // 树的数据,请参考`el-tree`的data
     data: {
       type: Array,
       default: () => []
@@ -110,6 +110,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.el-tree-node:focus > .el-tree-node__content {
+  background-color: $--color-primary;
+  color: #fff;
+}
+</style>
 
 <style scoped lang="scss">
 .filter-input {

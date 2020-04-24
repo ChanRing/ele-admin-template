@@ -5,6 +5,9 @@ actionLink: /guide/
 footer: MIT Licensed | Copyright © 2020 present laichangrong@live.cn
 ---
 
+:::tip 如何项目文档
+请确保Node.js版本 >= 8.6
+:::
 ```bash
 # 安装
 yarn global add vuepress # 或者：npm install -g vuepress
@@ -18,7 +21,3 @@ vuepress dev .
 # 构建静态文件
 vuepress build .
 ```
-
-::: tip
-请确保Node.js版本 >= 8.6
-:::

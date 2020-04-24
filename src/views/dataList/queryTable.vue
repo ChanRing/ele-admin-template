@@ -4,7 +4,7 @@
 <template>
   <el-container>
     <!-- 单位目录树 -->
-    <filter-tree></filter-tree>
+    <filter-tree :data="treeData"></filter-tree>
 
     <!-- 主体内容 -->
     <el-container direction="vertical">
@@ -24,6 +24,8 @@ import SearchBar from '@/components/SearchBar'
 import TablePage from '@/components/TablePage'
 import FilterTree from '@/components/FilterTree'
 import DialogBox from '@/components/DialogBox'
+import treeData from '../../../mock/data/treeData'
+
 import { getDataList1 } from '@/api'
 export default {
   name: 'QueryTable',
@@ -56,9 +58,11 @@ export default {
         name: '',
         createTime: ''
       },
+      treeData: [],
       formItems: [
         {
           label: '目录名称',
+          type: 'input',
           prop: 'name'
         },
         {
@@ -109,10 +113,14 @@ export default {
     createContent() {
       this.size = ''
       this.visible = true
+    },
+    getTreeData() {
+      this.treeData = treeData
+      this.$refs.table.getTableData()
     }
   },
   mounted() {
-    this.$refs.table.getTableData()
+    this.getTreeData()
   }
 }
 </script>

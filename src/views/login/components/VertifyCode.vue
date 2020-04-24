@@ -1,5 +1,10 @@
 <template>
-  <canvas id="s-canvas" :width="contentWidth" :height="contentHeight"></canvas>
+  <canvas
+    id="s-canvas"
+    @click="$emit('change')"
+    :width="contentWidth"
+    :height="contentHeight"
+  ></canvas>
 </template>
 <script>
 export default {
@@ -90,7 +95,7 @@ export default {
       ctx.font = this.randomNum(this.fontSizeMin, this.fontSizeMax) + 'px SimHei'
       let x = (i + 1) * (this.contentWidth / (this.identifyCode.length + 1))
       let y = this.randomNum(this.fontSizeMax, this.contentHeight - 5)
-      var deg = this.randomNum(-45, 45)
+      var deg = this.randomNum(-15, 15)
       // 修改坐标原点和旋转角度
       ctx.translate(x, y)
       ctx.rotate((deg * Math.PI) / 180)

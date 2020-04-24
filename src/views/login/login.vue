@@ -1,29 +1,8 @@
 <template>
   <div class="login container">
     <div class="login-wrap">
-      <div class="login-brand"></div>
-      <el-form :model="form">
-        <el-form-item>
-          <h1 class="title">{{ brandName }}</h1>
-        </el-form-item>
-        <el-form-item>
-          <el-input v-model="form.username" placeholder="请输入您的账号"> </el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-input v-model="form.password" type="password" placeholder="请输入您的密码">
-          </el-input>
-        </el-form-item>
-        <el-form-item class="vertify">
-          <el-input v-model="form.code" placeholder="请输入验证码"></el-input>
-          <verification-code></verification-code>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" class="login-btn" @click="$router.push({ name: 'workbench' })"
-            >登录</el-button
-          >
-          <el-link :underline="false">忘记密码？</el-link>
-        </el-form-item>
-      </el-form>
+      <login-brand></login-brand>
+      <login-form></login-form>
     </div>
     <wave-wrapper></wave-wrapper>
   </div>
@@ -34,10 +13,11 @@ import { createNamespacedHelpers } from 'vuex'
 
 const { mapState } = createNamespacedHelpers('common')
 import waveWrapper from './components/WaveWrapper'
-import VerificationCode from './components/VertifyCode'
+import LoginBrand from '@/views/login/components/LoginBrand'
+import LoginForm from '@/views/login/components/LoginForm'
 export default {
   name: 'Login',
-  components: { waveWrapper, VerificationCode },
+  components: { LoginForm, LoginBrand, waveWrapper },
   computed: {
     ...mapState({
       brandName: 'brandName'
@@ -59,42 +39,13 @@ export default {
   justify-content: center;
   .login-wrap {
     display: flex;
-    align-items: center;
+    padding-top: 80px;
     justify-content: space-evenly;
     width: 900px;
-    height: 520px;
+    height: 440px;
     background-color: #fff;
     box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
     border-radius: 14px;
-  }
-  .login-brand {
-    width: 398px;
-    height: 300px;
-    background: url('../../assets/undraw_work_chat_erdt.png') no-repeat;
-    background-size: cover;
-  }
-  .login-btn {
-    width: 100%;
-  }
-
-  .el-form {
-    width: 300px;
-    h1.title {
-      font-size: $--font-size-main;
-      font-weight: bold;
-      text-align: center;
-    }
-    &-item:last-child {
-      text-align: center;
-    }
-    .vertify ::v-deep .el-form-item__content {
-      display: flex;
-      align-items: center;
-      .el-input {
-        width: calc(100% - 120px);
-        margin-right: 20px;
-      }
-    }
   }
 }
 </style>

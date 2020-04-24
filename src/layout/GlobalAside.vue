@@ -33,7 +33,7 @@ export default {
   border-right: $--border-basic;
   text-align: right;
   i {
-    font-size: $--font-size-main;
+    font-size: $--font-size-title;
     height: 56px;
     width: 64px;
     line-height: 56px;

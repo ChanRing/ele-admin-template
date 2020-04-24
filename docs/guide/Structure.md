@@ -27,4 +27,28 @@
 
 当然，作为一个改bug都不够时间的前端小伙，肯定需要学会偷懒啦，你还可以将发布到测试环境的工作交给`Jenkins`这种工具，不再需要依赖后端/运维小哥啦。
 
-[前端JenKins自动化部署](https://iytz2gwgw1.feishu.cn/docs/doccnnhfa7W3fCpUwU2ETebBpOh)
+:::tip 自动化部署方案
+
+### Jenkins
+[JenKins自动化部署](https://iytz2gwgw1.feishu.cn/docs/doccnnhfa7W3fCpUwU2ETebBpOh)
+
+### Nginx
+```shell script
+#!/usr/bin/env sh
+
+# 当发生错误时中止脚本
+set -e
+
+# 构建
+npm run build
+
+# cd 到构建输出的目录下
+cd dist
+
+# mv 所有资源到指定nginx文件夹
+mv *  /path/nginx/html/md-admin-template
+
+echo 'done'
+cd -
+```
+:::
