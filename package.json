@@ -5,14 +5,13 @@
   "private": false,
   "author": {
     "email": "laichangrong@live.cn",
-    "name": "laichangrong"
+    "name": "ChanRing"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "deploy": "bash deploy.sh",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs"
   },

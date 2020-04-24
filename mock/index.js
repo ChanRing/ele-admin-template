@@ -31,7 +31,7 @@ export function mockXHR() {
         // https://expressjs.com/en/4x/api.html#req
         result = respond({
           method: type,
-          body: JSON.parse(body),
+          body: JSON.parse(body || '{}'),
           query: Qs.parse(url)
         })
         // Mock.mock(result)

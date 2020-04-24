@@ -6,7 +6,7 @@
 import { getMenus } from '@/api'
 
 const state = {
-  brandName: '基于Sass化的协同办公平台', //项目名称
+  brandName: 'md-admin-template', //项目名称
   collapse: false, // 侧边栏是否折叠
   direction: 'vertical', // 菜单栏显示方式 horizontal vertical
   menus: [] // 菜单栏配置项

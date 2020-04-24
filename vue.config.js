@@ -3,6 +3,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   productionSourceMap: false,
+  publicPath: process.env.NODE_ENV === 'production' ? '/md-admin-template/' : '/',
   pages: {
     // 多页面入口
     index: {
@@ -12,27 +13,26 @@ module.exports = {
     }
   },
   devServer: {
-    proxy: {
-      [process.env.VUE_APP_BASE_API]: {
-        target: `/api`,
-        changeOrigin: true,
-        pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
-        }
-      }
-    },
+    // proxy: {
+    //   [process.env.VUE_APP_BASE_API]: {
+    //     target: `/api`,
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       ['^' + process.env.VUE_APP_BASE_API]: ''
+    //     }
+    //   }
+    // },
     before: require('./mock/mockServer.js')
   },
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       config.plugins.push(
         new CompressionPlugin({
-          filename: '[path].gz[query]',
+          filename: '[path].gzip[query]', // 提示compression-webpack-plugin@2.0.0的话filename改为asset
           algorithm: 'gzip',
           test: /\.js$|\.css$|\.html$/,
-          threshold: 10240,
-          minRatio: 0.8,
-          deleteOriginalAssets: true
+          threshold: 10240, //内容超过10KB进行压缩
+          minRatio: 0.8
         })
       )
     }
