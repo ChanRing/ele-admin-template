@@ -1,10 +1,11 @@
 # VuePress
 
-::: tip 注意 
-在你使用VuePress编写文档时，可以前往[VuePress中文网](https://www.vuepress.cn/guide/)了解相关知识。
+::: tip 注意
+在你使用 VuePress 编写文档时，可以前往[VuePress 中文网](https://www.vuepress.cn/guide/)了解相关知识。
 :::
 
 ## 目录结构
+
 ```bash
 .
 ├── docs
@@ -21,14 +22,14 @@
 │   │   │   └── ssr.html
 │   │   ├── config.js (可选的)             # 配置文件的入口文件，也可以是 YML 或 toml
 │   │   └── enhanceApp.js (可选的)         # 客户端应用的增强
-│   │ 
+│   │
 │   ├── README.md
 │   ├── guide                             # 指南类型文档
 │   │   └── README.md
 │   └── config.md                         # config 文档
-│ 
+│
 └── package.json
-               
+
 ```
 
 ## 编写文档
@@ -37,14 +38,14 @@
 而导航栏则需要在 `.vuepress/nav.js` 进行配置。
 
 :::warning 提示
-新建Markdown文件需要重启服务
+新建 Markdown 文件需要重启服务
 :::
 
 [组件文档编写](../components/README.md)
 
-## 在Markdown中使用vue
+## 在 Markdown 中使用 vue
 
-所有在 .vuepress/components 中找到的 *.vue 文件将会自动地被注册为全局的异步组件，如:
+所有在 .vuepress/components 中找到的 \*.vue 文件将会自动地被注册为全局的异步组件，如:
 
 ```bash
 .
@@ -73,6 +74,7 @@ export default {
 
 <style scoped></style>
 ```
+
 <script>
   import MdButton from '../.vuepress/components/MdButton'
   export default {

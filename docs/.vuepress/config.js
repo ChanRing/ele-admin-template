@@ -9,7 +9,7 @@ const sortFn = key => (a, b) => {
 }
 
 module.exports = {
-  title: `手摸手开发文档`,
+  title: `模板开发文档`,
   description: `md-admin基础模板开发文档`,
   base: '/',
   dest: './vuepress',

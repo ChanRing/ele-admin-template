@@ -1,7 +1,9 @@
 # 构建与发布
 
 ## 构建
+
 当项目开发完毕，只需要运行命令行就可以打包你的应用。
+
 ```
 用法：vue-cli-service build [options] [entry|pattern]
 
@@ -21,18 +23,23 @@
 
 这里还有一些有用的命令参数：
 
-* --modern 使用现代模式构建应用，为现代浏览器交付原生支持的 ES2015 代码，并生成一个兼容老浏览器的包用来自动回退。
+- --modern 使用现代模式构建应用，为现代浏览器交付原生支持的 ES2015 代码，并生成一个兼容老浏览器的包用来自动回退。
 
-* --report 和 --report-json 会根据构建统计生成报告，它会帮助你分析包中包含的模块们的大小。
+- --report 和 --report-json 会根据构建统计生成报告，它会帮助你分析包中包含的模块们的大小。
 
-当然，作为一个改bug都不够时间的前端小伙，肯定需要学会偷懒啦，你还可以将发布到测试环境的工作交给`Jenkins`这种工具，不再需要依赖后端/运维小哥啦。
+当然，作为一个改 bug 都不够时间的前端小伙，肯定需要学会偷懒啦，你还可以将发布到测试环境的工作交给`Jenkins`这种工具，不再需要依赖后端/运维小哥啦。
 
 :::tip 自动化部署方案
+:::
 
 ### Jenkins
-[JenKins自动化部署](https://iytz2gwgw1.feishu.cn/docs/doccnnhfa7W3fCpUwU2ETebBpOh)
 
-### Nginx
+[JenKins 自动化部署](https://iytz2gwgw1.feishu.cn/docs/doccnnhfa7W3fCpUwU2ETebBpOh)
+
+### 使用 Nginx
+
+自动部署脚本
+
 ```shell script
 #!/usr/bin/env sh
 
@@ -42,13 +49,34 @@ set -e
 # 构建
 npm run build
 
-# cd 到构建输出的目录下
-cd dist
+# 部署到 /usr/local/var/www/md-admin-template
 
-# mv 所有资源到指定nginx文件夹
-mv *  /path/nginx/html/md-admin-template
+cp -r dist/* /usr/local/var/www/md-admin-template
 
-echo 'done'
 cd -
 ```
-:::
+
+nginx 配置如下：
+
+```nginx
+server {
+    listen       80;
+    server_name  localhost;
+
+	root /usr/local/var/www/;
+
+    #charset koi8-r;
+
+    #access_log  logs/host.access.log  main;
+
+	location / {}
+
+        location ^~/md-admin-template {
+	    index index.html;
+      	try_files $uri $uri/ /md-admin-template/index.html;
+	}
+
+    #error_page  404              /404.html;
+
+}
+```
