@@ -22,30 +22,6 @@
           "icon": "el-icon-date"
         }
       ]
-    },
-    {
-      "title": "表单",
-      "icon": "el-icon-document",
-      "name": "form",
-      "children": [
-        {
-          "title": "表单设计器",
-          "name": "formGenerator",
-          "target": "_blank"
-        }
-      ]
-    },
-    {
-      "title": "流程",
-      "icon": "el-icon-document",
-      "name": "flow",
-      "children": [
-        {
-          "title": "流程设计器",
-          "name": "flowGenerator",
-          "target": "_blank"
-        }
-      ]
     }
   ]
 }
