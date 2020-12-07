@@ -1,7 +1,7 @@
 <!-- 转盘 -->
 <template>
-  <div class="big-wheel-wrap" :style="{backgroundImage: `url('${backgroundImage}')`}">
-    <div class="big-wheel" ref="bigWheel" :style="{width, height}">
+  <div class="big-wheel" :style="{backgroundImage: `url('${backgroundImage}')`}">
+    <div class="big-wheel__wrap" ref="bigWheel" :style="{width, height}">
       <div class="wrap" :style="{transform: rotateAngle, transition: rotateTransition}">
         <canvas ref="canvas">浏览器版本过低</canvas>
         <div class="prize-wrap">
@@ -150,34 +150,31 @@ export default {
   },
   mounted () {
     this.init()
+    window.addEventListener('resize', this.init)
   }
 }
 
 </script>
 <style lang="scss" scoped>
 
-.big-wheel-wrap {
-  position: absolute;
-  top: 1.7rem;
-  left: 50%;
-  transform: translateX(-50%);
+.big-wheel {
   text-align: center;
   font-size: 0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  padding: .22rem;
+  padding: .44rem;
 
   .start-btn {
     position: absolute;
-    top: 1.19rem;
+    top: 2.38rem;
     left: 50%;
     transform: translateX(-50%);
-    width: .8rem;
+    width: 1.6rem;
   }
 }
 
-.big-wheel {
+.big-wheel__wrap {
   position: relative;
   display: inline-block;
 

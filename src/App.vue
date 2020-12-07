@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <big-wheel
-      width="3rem"
-      height="3rem"
+      width="6rem"
+      height="6rem"
       ref="bigWheel"
       :prizeList="prizeList"
       @start="start"
@@ -86,30 +86,39 @@ export default {
 #app {
   position: relative;
   overflow: hidden;
-  width: 100vw;
+  width: 7.5rem;
   min-height: 100vh;
-  background-image: url('~@/assets/img/wheel_bg.jpg');
-  background-repeat: no-repeat;
+  background-color: #53066e;
+  //background-image: url('~@/assets/img/wheel_bg.jpg');
+  background-repeat: repeat-y;
   background-position: center top;
   background-size: 100%;
+  margin: auto;
+
+  .big-wheel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   .prize-name {
     position: absolute;
-    left: .25rem;
-    right: .25rem;
-    top: .2rem;
-    font-size: .14rem;
+    left: .7rem;
+    right: .7rem;
+    top: .4rem;
+    font-size: .28rem;
     text-align: center;
     color: #7D2A00;
   }
 
   .prize-img {
     position: absolute;
-    top: .58rem;
+    top: 1.26rem;
     left: 50%;
     transform: translateX(-50%);
-    width: .3rem;
-    height: .3rem;
+    width: .6rem;
+    height: .6rem;
   }
 }
 </style>
