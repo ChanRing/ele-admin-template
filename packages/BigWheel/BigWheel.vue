@@ -10,13 +10,13 @@
             v-for="(item,index) in prizeList"
             :key="index"
             :style="_calcRotateAngle(index)">
-            <slot name="items" :item="item"/>
+            <slot name="item" :item="item"/>
           </div>
         </div>
       </div>
     </div>
     <!-- 中间按钮部分 -->
-    <slot>
+    <slot :start="start">
       <img class="start-btn" @click="start" :src="startBtnImage" />
     </slot>
   </div>
@@ -66,7 +66,8 @@ export default {
       isLock: false, // 禁止重复点击
       startRotateDegree: 0, // 开始转动的角度
       rotateAngle: 'rotate(0deg)', // 设置指针默认指向的位置,现在是默认指向1个扇形中间，设置为0即指向两个扇形之间的线上
-      rotateTransition: ''
+      rotateTransition: '',
+      reference: undefined
     }
   },
   methods: {

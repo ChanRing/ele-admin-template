@@ -7,16 +7,18 @@
       :prizeList="prizeList"
       @start="start"
       @over="over">
-      <template v-slot:items="{ item }">
+      <template v-slot:item="{ item }">
         <div class="prize-name">{{ item.text }}</div>
         <img class="prize-img" :src="item.icon">
+      </template>
+      <template v-slot:default="{start}">
+        <img class="start-btn 123" data-v="1231" @click="start" :src="require('@/assets/img/go.png')" />
       </template>
     </big-wheel>
   </div>
 </template>
 
 <script>
-import BigWheel from '@/../packages/BigWheel'
 
 export default {
   name: 'App',
@@ -59,12 +61,17 @@ export default {
           text: '50积分',
           icon: require('@/assets/img/bun.png')
         }
-      ]
+      ],
+      limits: 5 // 限制抽奖次数
     }
   },
   methods: {
     // 开始转动
     start () {
+      if (this.limits <= 0) {
+        alert('剩余抽奖次数不足')
+        return
+      }
       // 模拟随机数，这里可以请求后台获取中将信息
       const index = Math.floor(Math.random() * this.prizeList.length)
 
@@ -73,11 +80,12 @@ export default {
     },
     // 转盘转完事件
     over ({ text }) {
-      alert(`恭喜获得${text}`)
+      this.limits--
+      alert(`恭喜获得${text}, 剩余${this.limits}次机会`)
     }
   },
   components: {
-    BigWheel
+    BigWheel: () => import('packages/BigWheel')
   }
 }
 </script>
