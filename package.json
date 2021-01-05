@@ -16,7 +16,7 @@
     "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "element-ui": "^2.4.5",
     "mockjs": "^1.1.0",
